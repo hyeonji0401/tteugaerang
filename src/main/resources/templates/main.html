@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뜨개랑</title>
     <link rel="stylesheet" href="/css/styles.css"> <!-- 외부 CSS 파일 연결 -->
-    <script src="/js/scripts.js" defer></script> <!-- JS 파일 연결 -->
+<!--    <script src="/js/scripts.js" defer></script> &lt;!&ndash; JS 파일 연결 &ndash;&gt;-->
 </head>
 <body>
 
@@ -22,25 +22,8 @@
         <a href="/shop">Shop</a>
         <a href="/design">Design</a>
         <button id="login-btn">로그인</button>
-        <button id="signup-btn">회원가입</button>
+        <button id="signup-btn" onclick="location.href='/signup'">회원가입</button>
     </nav>
-
-    <script>
-        document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault(); // 기본 폼 제출 동작 막기
-    
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-    
-            // 간단한 로그인 상태 확인 로직 (실제 구현에서는 서버 검증 필요)
-            if (email && password) {
-                localStorage.setItem('isLoggedIn', 'true');
-                window.location.href = 'main.html'; // 로그인 성공 시 메인 화면으로 이동
-            } else {
-                alert('이메일과 비밀번호를 확인하세요.');
-            }
-        });
-    </script> 
 
     <!-- Search Bar -->
     <div class="search-bar">

@@ -38,41 +38,6 @@
         <p>© 2024 뜨개랑. All rights reserved.</p>
     </footer>
 
-    <!-- 마이페이지에 사용자 정보 띄우는 스크립트 -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // localStorage에서 사용자 이름 가져오기
-            const username = localStorage.getItem('userName');
-            // localStorage에서 사용자 이메일 가져오기
-            const userEmail = localStorage.getItem('userEmail');
-            
-            if (userEmail) {
-                // 사용자 이름 표시
-                document.getElementById('user-name').textContent = username;
-            } else {
-                // 이름이 없으면 로그인 페이지로 리다이렉트
-                window.location.href = 'login.html';
-            }
-
-            if (userEmail) {
-                // 사용자 이메일 표시
-                document.getElementById('user-email').textContent = userEmail;
-            } else {
-                // 이메일이 없으면 로그인 페이지로 리다이렉트
-                window.location.href = 'login.html';
-            }
-    
-            // 로그아웃 버튼 클릭 시
-            document.getElementById('logout-btn').addEventListener('click', function() {
-                localStorage.setItem('isLoggedIn', 'false');
-                localStorage.removeItem('userEmail'); // 이메일 정보 삭제
-                window.location.href = 'main.html';
-            });
-        });
-        document.getElementById('edit-info-btn').addEventListener('click', function() {
-        window.location.href = 'edit-profile.html'; // 회원정보 수정 페이지로 이동
-        });
-    </script>
     
 </body>
 </html>
