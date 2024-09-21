@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보 수정</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>회원정보 수정</h1>
+    </header>
+
+    <!-- 회원정보 수정 폼 -->
+    <div class="edit-profile-container">
+        <h2>정보를 수정하세요</h2>
+        <form id="edit-profile-form">
+            <div class="form-group">
+                <label for="new-email">이메일</label>
+                <input type="email" id="new-email" name="new-email" placeholder="새 이메일을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="new-name">이름</label>
+                <input type="text" id="new-name" name="new-name" placeholder="새 이름을 입력하세요" required>
+            </div>
+            <div class="form-group">
+                <label for="new-pw">새 비밀번호</label>
+                <input type="password" id="new-pw" name="new-pw" placeholder="새 비밀번호를 입력하세요" required>
+            </div>            
+            <button type="submit">저장</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 이메일 정보 초기화 (기존 이메일 입력 필드에 미리 채워넣기)
+            const userEmail = localStorage.getItem('userEmail');
+            const userPassword = localStorage.getItem('userPassword');
+            
+            if (userEmail) {
+                document.getElementById('new-email').value = userEmail;
+            }
+
+            // 폼 제출 시 정보 업데이트
+            document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const newEmail = document.getElementById('new-email').value;
+                const newName = document.getElementById('new-name').value;
+                const newPassword = document.getElementById('new-pw').value;
+
+                // 이메일, 비밀번호 및 사용자 정보 저장
+                if (newEmail && newName && newPassword) {
+                    localStorage.setItem('userEmail', newEmail);
+                    localStorage.setItem('userPassword', newPassword); // 비밀번호도 함께 저장
+                    alert('회원 정보가 수정되었습니다.');
+                    window.location.href = 'mypage.html'; // 수정 후 마이페이지로 돌아가기
+                } else {
+                    alert('모든 정보를 입력하세요.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

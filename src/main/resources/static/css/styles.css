@@ -1,0 +1,432 @@
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+/* main.html 메인 css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #6b8057;
+}
+
+header p {
+    color: #6b8057;
+    margin-top: -20px;
+}
+
+nav {
+    text-align: right;
+    padding: 10px 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #6b8057;
+}
+
+button {
+    margin: 0 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #6b8057;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #557b4c;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search-bar input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: 1px solid #6b8057;
+    border-left: none; /* 인풋과 버튼 사이의 중복 테두리 제거 */
+    background-color: #6b8057;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0; /* 오른쪽 모서리 둥글게 */
+}
+
+.search-bar button:hover {
+    background-color: #557b4c;
+}
+
+.section-title {
+    font-size: 1.8em;
+    color: #6b8057;
+    margin-left: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4개의 이미지를 가로로 배치 */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px; /* 최대 너비 설정 */
+    margin: 0 auto; /* 자동 여백으로 중앙 정렬 */
+}
+
+.section-title-shopping{
+    font-size: 1.8em;
+    color: #6b8057;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+}
+
+.shop-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container-shopping {
+    display: flex;
+    overflow-x: scroll; /* 가로 스크롤을 활성화 */
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    gap: 10px;
+    padding: 10px 0; /* 상하 패딩 */
+    max-width: 100%; /* 최대 너비를 부모 요소에 맞게 조정 */
+    margin: 0 auto; /* 자동 여백으로 중앙 정렬 */
+}
+
+.shop-slider button:hover {
+    background-color: #557b4c;
+}
+
+.item {
+    background-color: #ccc;
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+}
+
+.item-shopping {
+    flex: 0 0 auto; /* 플렉스 컨테이너에서 고정된 너비 사용 */
+    width: 200px; /* 각 이미지의 너비 */
+    background-color: #ccc;
+    position: relative;
+}
+
+.item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-top: 1px solid #e0e0e0;
+}
+
+
+
+/* login.html 로그인 css */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #6b8057;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 95%;
+    padding: 10px;
+    background-color: #6b8057;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #557b4c;
+}
+
+.signup-link {
+    margin-top: 15px;
+}
+
+.signup-link a {
+    color: #6b8057;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* signup.html 회원가입 css */
+.signup-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+    color: #6b8057;
+}
+
+.login-link {
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #6b8057;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* community.html 커뮤니티 css */
+/* 상단 메뉴바 설정 */
+/* community.css로 이동*/
+
+/* 뜨개랑 메인 글씨 눌렀을 때 밎줄 생기는 현상 제거하는 코드 */
+.no-underline { 
+    text-decoration: none;
+    color: inherit; /* 부모 요소의 색상 상속 */
+}
+
+.no-underline:hover {
+    color: inherit; /* Hover 시에도 색상이 변하지 않도록 */
+}
+
+.com_select{
+    color: #afee6f;
+}
+
+
+
+/* ai.html 리소스 페이지 CSS */
+.ai-container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 800px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.ai-container h2 {
+    color: #6b8057;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.ai-container p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.ai-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ai-list li {
+    margin: 10px 0;
+}
+
+.ai-list a {
+    text-decoration: none;
+    color: #6b8057;
+    font-size: 1.2em;
+}
+
+.ai-list a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Bar에서 리소스 메뉴 강조 */
+.ai_select {
+    color: #afee6f;
+}
+
+
+
+/* shop.html 쇼핑 페이지 CSS */
+.shop-container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 800px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.shop-container h2 {
+    color: #6b8057;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.shop-container p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.shop-list {
+    list-style: none;
+    padding: 0;
+}
+
+.shop-list li {
+    margin: 10px 0;
+}
+
+.shop-list a {
+    text-decoration: none;
+    color: #6b8057;
+    font-size: 1.2em;
+}
+
+.shop-list a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Bar에서 쇼핑 메뉴 강조 */
+.shop_select {
+    color: #afee6f;
+}
+
+
+
+/* design.html 연락처 페이지 CSS */
+.design-container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 800px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.design-container h2 {
+    color: #6b8057;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.design-container p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.design-list {
+    list-style: none;
+    padding: 0;
+}
+
+.design-list li {
+    margin: 10px 0;
+}
+
+.design-list a {
+    text-decoration: none;
+    color: #6b8057;
+}
+
+.design-list a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Bar에서 연락처 메뉴 강조 */
+.design_select {
+    color: #afee6f;
+}
