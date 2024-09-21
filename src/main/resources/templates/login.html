@@ -22,29 +22,9 @@
             </div>
             <button type="submit">로그인</button>
         </form>
-        <p class="signup-link">아직 계정이 없으신가요? <a href="signup.html">회원가입</a></p>
+        <p class="signup-link">아직 계정이 없으신가요? <a href="/signup">회원가입</a></p>
     </div>
 
-    <script>
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // 폼 제출 막기
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-
-            // localStorage에 저장된 이메일과 비밀번호 가져오기
-            const storedEmail = localStorage.getItem('userEmail');
-            const storedPassword = localStorage.getItem('userPassword');
-
-            // 이메일과 비밀번호가 일치하면 로그인 성공
-            if (email === storedEmail && password === storedPassword) {
-                localStorage.setItem('isLoggedIn', 'true'); // 로그인 상태 저장
-                window.location.href = 'main.html'; // 메인 페이지로 이동
-            } else {
-                alert('이메일 또는 비밀번호가 일치하지 않습니다.');
-            }
-        });
-    </script>
 
 </body>
 </html>
