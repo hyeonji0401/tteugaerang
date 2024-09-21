@@ -1,5 +1,6 @@
 package com.example.tteugaerang.controller;
 
+import com.example.tteugaerang.dto.LoginDTO;
 import com.example.tteugaerang.dto.MemberDTO;
 import com.example.tteugaerang.service.MemberService;
 import jakarta.validation.Valid;
@@ -39,5 +40,10 @@ public class MemberController {
         }
         return "/main";
     }
+
+    @GetMapping("/login")
+    public String signup(){return "/login";}
+
+
 
 }

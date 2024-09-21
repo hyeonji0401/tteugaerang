@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,8 +21,10 @@
         <a href="/ai">AI</a>
         <a href="/shop">Shop</a>
         <a href="/design" class="design_select">Design</a>
-        <button id="login-btn">로그인</button>
-        <button id="signup-btn">회원가입</button>
+        <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+        <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+        <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+        <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
     </nav>
 
     <!-- Design Section -->
