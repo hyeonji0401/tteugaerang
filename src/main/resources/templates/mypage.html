@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="main.html" class="no-underline"><h1>뜨개랑</h1></a>
+        <p>마이페이지</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="community.html">Community</a>
+        <a href="ai.html">AI</a>
+        <a href="shop.html">Shop</a>
+        <a href="design.html">Design</a>
+        <button id="logout-btn">로그아웃</button>
+    </nav>
+
+    <!-- 마이페이지 콘텐츠 -->
+    <div class="mypage-container">
+        <h2>사용자 정보</h2>
+        <p>사용자 이름: <span id="user-name"></span></p>
+        <p>이메일: <span id="user-email"></span></p> <!-- 이메일 표시 -->
+        <!-- 더 많은 사용자 정보를 표시할 수 있음 -->
+        <button id="edit-info-btn">회원정보 수정</button> <!-- 회원정보 수정 버튼 -->
+    </div>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 뜨개랑. All rights reserved.</p>
+    </footer>
+
+    <!-- 마이페이지에 사용자 정보 띄우는 스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // localStorage에서 사용자 이름 가져오기
+            const username = localStorage.getItem('userName');
+            // localStorage에서 사용자 이메일 가져오기
+            const userEmail = localStorage.getItem('userEmail');
+            
+            if (userEmail) {
+                // 사용자 이름 표시
+                document.getElementById('user-name').textContent = username;
+            } else {
+                // 이름이 없으면 로그인 페이지로 리다이렉트
+                window.location.href = 'login.html';
+            }
+
+            if (userEmail) {
+                // 사용자 이메일 표시
+                document.getElementById('user-email').textContent = userEmail;
+            } else {
+                // 이메일이 없으면 로그인 페이지로 리다이렉트
+                window.location.href = 'login.html';
+            }
+    
+            // 로그아웃 버튼 클릭 시
+            document.getElementById('logout-btn').addEventListener('click', function() {
+                localStorage.setItem('isLoggedIn', 'false');
+                localStorage.removeItem('userEmail'); // 이메일 정보 삭제
+                window.location.href = 'main.html';
+            });
+        });
+        document.getElementById('edit-info-btn').addEventListener('click', function() {
+        window.location.href = 'edit-profile.html'; // 회원정보 수정 페이지로 이동
+        });
+    </script>
+    
+</body>
+</html>
