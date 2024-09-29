@@ -6,7 +6,7 @@
     <title>Community - 뜨개랑</title>
     <link rel="stylesheet" href="/css/community.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<!--    <script src="/js/scripts.js" defer></script> &lt;!&ndash; scripts.js 파일 연결 &ndash;&gt;-->
+    <script src="scripts.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
@@ -32,25 +32,17 @@
                 <a href="/main" class="no-underline"><h2>뜨개랑</h2></a>
             </div>
         </header>
+
         <main>
             <div class="tab-section-wrapper">
-                <h2 class="section-title">공지사항</h2>
+                <h2 class="section-title">커뮤니티 게시판</h2>
                 <div class="tab-section">
-                    <button class="active">#공지사항</button>
-                    <button>#자주묻는 질문</button>
-                    <button>#주문/배송문의</button>
-                    <button>#사용후기</button>
+                    <button class="active">#자유게시판</button>
+                    <button>#정보게시판</button>
+                    <button>#질문답변</button>
+                    <button>#후기게시판</button>
                 </div>
             </div>
-            <script>
-                const tabButtons = document.querySelectorAll('.tab-section button');
-                tabButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        tabButtons.forEach(btn => btn.classList.remove('active'));
-                        this.classList.add('active');
-                    });
-                });
-            </script>
 
             <section class="search-section">
                 <label><input type="radio" name="search-type" id="name" value="name"> 이름</label>
@@ -62,30 +54,32 @@
                 </div>
             </section>
 
+            <!-- 게시글 목록 -->
             <section class="notice-list">
                 <ul class="notice-list">
-                    <li><i class="fa-regular fa-user"></i> 공지사항 1</li>
-                    <li><i class="fa-regular fa-user"></i> 공지사항 2</li>
-                    <li><i class="fa-regular fa-user"></i> 공지사항 3</li>
-                    <li><i class="fa-regular fa-user"></i> 공지사항 4</li>
-                    <li><i class="fa-regular fa-user"></i> 공지사항 5</li>
-                    <li><i class="fa-regular fa-user"></i> 공지사항 6</li>
+                    <li><a href="post_detail.html">자유게시판 글 1</a> <span class="post-meta">작성자: 을지문덕 | 2024-09-29</span></li>
+                    <li><a href="post_detail.html">자유게시판 글 2</a> <span class="post-meta">작성자: 강감찬 | 2024-09-28</span></li>
+                    <li><a href="post_detail.html">자유게시판 글 3</a> <span class="post-meta">작성자: 이순신 | 2024-09-27</span></li>
+                    <li><a href="post_detail.html">자유게시판 글 3</a> <span class="post-meta">작성자: 김시민 | 2024-09-26</span></li>
+                    <li><a href="post_detail.html">자유게시판 글 3</a> <span class="post-meta">작성자: 권율 | 2024-09-25</span></li>
                 </ul>
             </section>
+
+            <!-- 글 작성 버튼 -->
+            <div class="write-button">
+                <a href="write_post.html" class="btn-write">글 작성하기</a>
+            </div>
+
             <div class="pagination">
                 <a href="#">&laquo;</a>
                 <a href="#" class="active">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
                 <a href="#">&raquo;</a>
             </div>
         </main>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>© 2024 뜨개랑. All rights reserved.</p>
     </footer>
