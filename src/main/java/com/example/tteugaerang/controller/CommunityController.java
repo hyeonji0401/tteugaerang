@@ -5,13 +5,20 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
 public class CommunityController {
     private final CommunityService communityService;
 
-    @GetMapping("/communitydelete/{id}")
+    @PostMapping("/community/create")
+    public String create(@RequestParam(value="title") String title, @RequestParam(value="content") String content){
+        return "redirect:/community";
+    }
+
+    @GetMapping("/community/delete/{id}")
     public String delete(@PathVariable("id") Long id){
         communityService.delete(id);
         return "redirect:/community";
