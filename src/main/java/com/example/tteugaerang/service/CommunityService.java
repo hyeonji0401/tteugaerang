@@ -5,5 +5,6 @@ import com.example.tteugaerang.dto.CommunityDTO;
 
 public interface CommunityService {
     Community create(CommunityDTO communityDTO);
+    void delete(Long communityId);
 
 }

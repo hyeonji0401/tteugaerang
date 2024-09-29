@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class CommunityServiceImpl implements CommunityService {
@@ -27,5 +30,16 @@ public class CommunityServiceImpl implements CommunityService {
         } catch (NullPointerException e) {
             throw new IllegalArgumentException("입력값이 null입니다.", e);
         }
+    }
+
+    @Override
+    public void delete(Long communityId){
+        Optional<Community> communityOpt = this.communityRepository.findById(communityId);
+        Community community= communityOpt.orElseThrow(() -> new NoSuchElementException("Post not found"));
+        if(!userSecurityService.getAuthen().equals(community.getWriter())){
+            throw new SecurityException("You are not the owner of this post");
+        }
+        this.communityRepository.delete(community);
+
     }
 }
