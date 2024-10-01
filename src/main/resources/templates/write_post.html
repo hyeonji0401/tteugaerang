@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 작성 - 뜨개랑 커뮤니티</title>
+    <link rel="stylesheet" href="community.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <ul class="menu">
+                    <div class="menu-group-1">
+                        <li><a href="community.html">Community</a></li>
+                        <li><a href="ai.html">AI</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="design.html">Design</a></li>
+                    </div>
+                </ul>
+            </nav>
+            <hr class="thin-line">
+        </header>
+
+        <main>
+            <h2 class="section-title">글 작성하기</h2>
+            <form class="write-form" action="/submit_post" method="POST">
+                <label for="title">제목:</label>
+                <input type="text" id="title" name="title" required class="input-field">
+                
+                <label for="content">내용:</label>
+                <textarea id="content" name="content" rows="10" required class="textarea-field"></textarea>
+                
+                <button type="submit" class="submit-btn">작성 완료</button>
+            </form>
+        </main>
+
+        <footer>
+            <p>© 2024 뜨개랑. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
