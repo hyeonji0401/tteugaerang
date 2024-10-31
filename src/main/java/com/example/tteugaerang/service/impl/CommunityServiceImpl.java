@@ -9,8 +9,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -18,6 +20,7 @@ public class CommunityServiceImpl implements CommunityService {
     private final CommunityRepository communityRepository;
     private final UserSecurityService userSecurityService;
 
+    //글 생성
     @Override
     public Community create(CommunityDTO communityDTO) {
         try {
@@ -32,6 +35,7 @@ public class CommunityServiceImpl implements CommunityService {
         }
     }
 
+    //글 삭제
     @Override
     public void delete(Long communityId){
         Optional<Community> communityOpt = this.communityRepository.findById(communityId);
@@ -40,6 +44,18 @@ public class CommunityServiceImpl implements CommunityService {
             throw new SecurityException("You are not the owner of this post");
         }
         this.communityRepository.delete(community);
+
+    }
+
+    //글 전체 조회
+    @Override
+    public List<CommunityDTO> findAllCommunity(){
+        List<Community> communityList = this.communityRepository.findAll();
+
+        return communityList.stream()
+                .map(CommunityDTO::new)
+                .collect(Collectors.toList());
+
 
     }
 }

@@ -1,23 +1,37 @@
 package com.example.tteugaerang.controller;
 
+import com.example.tteugaerang.dto.CommunityDTO;
 import com.example.tteugaerang.service.CommunityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class CommunityController {
     private final CommunityService communityService;
 
+    //전체 조회
+    @GetMapping("/community/list")
+    public String list(Model model){
+        List<CommunityDTO> communityList = this.communityService.findAllCommunity();
+        model.addAttribute("communityList", communityList);
+        return "community";
+    }
+
+    //글 생성
     @PostMapping("/community/create")
     public String create(@RequestParam(value="title") String title, @RequestParam(value="content") String content){
         return "redirect:/community";
     }
 
+    //삭제
     @GetMapping("/community/delete/{id}")
     public String delete(@PathVariable("id") Long id){
         communityService.delete(id);
