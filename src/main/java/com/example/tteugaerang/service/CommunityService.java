@@ -10,6 +10,6 @@ import java.util.List;
 public interface CommunityService {
     Community create(CommunityFormDTO communityFormDTO);
     void delete(Long communityId);
-    Page<Community> getList(int page);
+    Page<Community> getList(int page, String kw);
 
 }

@@ -1,16 +1,19 @@
 package com.example.tteugaerang.service.impl;
 
 import com.example.tteugaerang.domain.Community;
+import com.example.tteugaerang.domain.Member;
 import com.example.tteugaerang.dto.CommunityDTO;
 import com.example.tteugaerang.dto.CommunityFormDTO;
 import com.example.tteugaerang.repository.CommunityRepository;
 import com.example.tteugaerang.service.CommunityService;
 import com.example.tteugaerang.service.UserSecurityService;
+import jakarta.persistence.criteria.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -55,10 +58,26 @@ public class CommunityServiceImpl implements CommunityService {
 
     //글 전체 조회
     @Override
-    public Page<Community> getList(int page){
+    public Page<Community> getList(int page, String kw){
         List<Sort.Order> sorts = new ArrayList<>();
         sorts.add(Sort.Order.desc("writeTime"));
         Pageable pageable = PageRequest.of(page,10, Sort.by(sorts));
-        return this.communityRepository.findAll(pageable);
+        Specification<Community> spec = search(kw);
+        return this.communityRepository.findAll(spec, pageable);
+    }
+
+    //글 검색
+    private Specification<Community> search(String kw){
+        return new Specification<Community>() {
+            private static final long serialVersionUID = 1L;
+            @Override
+            public Predicate toPredicate(Root<Community> c, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                query.distinct(true);
+                Join<Community, Member> u1 = c.join("writer", JoinType.LEFT);
+                return cb.or(cb.like(c.get("title"), "%" + kw + "%"),
+                        cb.like(c.get("content"), "%"+kw+"%"),
+                        cb.like(u1.get("memberName"), "%"+kw+"%"));
+            }
+        };
     }
 }
