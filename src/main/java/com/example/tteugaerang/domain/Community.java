@@ -1,6 +1,7 @@
 package com.example.tteugaerang.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,7 +18,7 @@ public class Community {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "writer")
+    @JoinColumn(name = "writer" , nullable=false)
     private Member writer;
 
     @Column(nullable = false)

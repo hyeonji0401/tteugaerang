@@ -13,11 +13,6 @@ public class MainController {
         return "/main";
     }
 
-    @GetMapping("/community")
-    public String community(){
-        return "/community";
-    }
-
     @GetMapping("/ai")
     public String ai(){
         return "/ai";
