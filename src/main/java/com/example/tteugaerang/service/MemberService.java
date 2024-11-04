@@ -5,4 +5,5 @@ import com.example.tteugaerang.dto.MemberDTO;
 
 public interface MemberService {
     Member create(MemberDTO memberDTO);
+    MemberDTO showMember();
 }

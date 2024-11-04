@@ -24,18 +24,13 @@
 
         <main>
             <h2 class="section-title">글 작성하기</h2>
-            <form class="write-form" th:action="@{/community/create}" method="POST">
-                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-                <div th:if="${param.error}">
-                    <div style="color: white; background-color: #8a3b3b">
-                        제목과 내용은 필수입니다.
-                    </div>
-                </div>
+            <form class="write-form" th:action="@{/community/create}" th:object="${communityFormDTO}" method="POST">
+                <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                 <label for="title">제목:</label>
-                <input type="text" id="title" name="title" required class="input-field">
+                <input type="text" id="title" name="title" th:field="*{title}" required class="input-field">
                 
                 <label for="content">내용:</label>
-                <textarea id="content"  name="content" rows="10" required class="textarea-field"></textarea>
+                <textarea id="content"  name="content" th:field="*{content}" rows="10" required class="textarea-field"></textarea>
                 
                 <button type="submit" class="submit-btn">작성 완료</button>
             </form>

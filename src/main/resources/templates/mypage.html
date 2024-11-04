@@ -10,7 +10,7 @@
 
     <!-- Header -->
     <header>
-        <a href="/main" class="no-underline"><h1>뜨개랑</h1></a>
+        <a href="/" class="no-underline"><h1>뜨개랑</h1></a>
         <p>마이페이지</p>
     </header>
 
@@ -20,14 +20,14 @@
         <a href="/ai">AI</a>
         <a href="/shop">Shop</a>
         <a href="/design">Design</a>
-        <button id="logout-btn">로그아웃</button>
+        <button id="logout-btn" onclick="location.href='/logout'" >로그아웃</button>
     </nav>
 
     <!-- 마이페이지 콘텐츠 -->
     <div class="mypage-container">
         <h2>사용자 정보</h2>
-        <p>사용자 이름: <span id="user-name"></span></p>
-        <p>이메일: <span id="user-email"></span></p> <!-- 이메일 표시 -->
+        <p>사용자 이름: <span id="user-name" th:text="${member.memberName}"></span></p>
+        <p>이메일: <span id="user-email" th:text="${member.email}"></span></p> <!-- 이메일 표시 -->
         <!-- 더 많은 사용자 정보를 표시할 수 있음 -->
         <button id="edit-info-btn">회원정보 수정</button> <!-- 회원정보 수정 버튼 -->
     </div>
