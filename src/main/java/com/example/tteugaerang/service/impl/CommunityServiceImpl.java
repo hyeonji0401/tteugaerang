@@ -2,6 +2,7 @@ package com.example.tteugaerang.service.impl;
 
 import com.example.tteugaerang.domain.Community;
 import com.example.tteugaerang.dto.CommunityDTO;
+import com.example.tteugaerang.dto.CommunityFormDTO;
 import com.example.tteugaerang.repository.CommunityRepository;
 import com.example.tteugaerang.service.CommunityService;
 import com.example.tteugaerang.service.UserSecurityService;
@@ -22,11 +23,11 @@ public class CommunityServiceImpl implements CommunityService {
 
     //글 생성
     @Override
-    public Community create(CommunityDTO communityDTO) {
+    public Community create(CommunityFormDTO communityFormDTO) {
         try {
             Community community = new Community();
-            community.setTitle(communityDTO.getTitle());
-            community.setContent(communityDTO.getContent());
+            community.setTitle(communityFormDTO.getTitle());
+            community.setContent(communityFormDTO.getContent());
             community.setWriter(userSecurityService.getAuthen());
             community.setWriteTime(LocalDateTime.now());
             return this.communityRepository.save(community);
