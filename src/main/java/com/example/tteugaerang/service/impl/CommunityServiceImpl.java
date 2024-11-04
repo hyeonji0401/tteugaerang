@@ -10,9 +10,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -54,8 +56,9 @@ public class CommunityServiceImpl implements CommunityService {
     //글 전체 조회
     @Override
     public Page<Community> getList(int page){
-        Pageable pageable = PageRequest.of(page,10);
+        List<Sort.Order> sorts = new ArrayList<>();
+        sorts.add(Sort.Order.desc("writeTime"));
+        Pageable pageable = PageRequest.of(page,10, Sort.by(sorts));
         return this.communityRepository.findAll(pageable);
-
     }
 }
