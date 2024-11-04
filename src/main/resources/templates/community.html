@@ -59,7 +59,13 @@
                 <ul class="notice-list" th:each="community, loop : ${paging}">
                     <li>
                         <a th:href="@{post_detail.html}" th:text="${community.title}"></a>
-                        <span class="post-meta" th:text="'작성자: ' + ${community.writer} + ' | ' + ${#temporals.format(community.writeTime, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                        <span class="post-meta" th:text="'작성자: ' + ${community.writer.getMemberName()} + ' | ' + ${#temporals.format(community.writeTime, 'yyyy-MM-dd HH:mm:ss')}"></span><br>
+                        <span class="post-meta">
+                        <span th:if="${#strings.length(community.getContent()) > 10}"
+                              th:text="${community.getContent().substring(0, 10)} + '...'"></span>
+                        <span th:if="${#strings.length(community.getContent()) <= 10}"
+                              th:text="${community.getContent()}"></span>
+                    </span>
                     </li>
                 </ul>
             </section>
@@ -100,14 +106,6 @@
                     </li>
                 </ul>
             </div>
-
-<!--            <div class="pagination">-->
-<!--                <a href="#">&laquo;</a>-->
-<!--                <a href="#" class="active">1</a>-->
-<!--                <a href="#">2</a>-->
-<!--                <a href="#">3</a>-->
-<!--                <a href="#">&raquo;</a>-->
-<!--            </div>-->
         </main>
     </div>
 
