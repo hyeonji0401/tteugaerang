@@ -211,32 +211,52 @@
       color: #888;
       margin-left: 10px;
   }
-  
-  .pagination {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-  }
-  
-  .pagination a {
-      color: black;
-      padding: 8px 16px;
-      text-decoration: none;
-      border: 1px solid #ddd;
-      margin: 0 4px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-  }
-  
-  .pagination a:hover {
-      background-color: #ddd;
-  }
-  
-  .pagination a.active {
-      background-color: #648853;
-      color: white;
-      border: 1px solid #648853;
-  }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0;
+}
+
+.pagination ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none; /* 불릿 포인트 제거 */
+}
+
+.pagination li {
+    margin: 0 5px;
+    list-style: none; /* 불릿 포인트 제거 */
+}
+
+.pagination a {
+    display: block;
+    padding: 8px 12px;
+    color: #4e5c36;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #4e5c36;
+    color: #fff;
+}
+
+.pagination .disabled a {
+    color: #ccc;
+    pointer-events: none;
+    cursor: default;
+}
+
+.pagination .active a {
+    background-color: #4e5c36;
+    color: #fff;
+    border-color: #4e5c36;
+}
   
   .write-button {
       text-align: right;

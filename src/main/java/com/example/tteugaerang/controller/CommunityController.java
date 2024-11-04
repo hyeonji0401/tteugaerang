@@ -1,10 +1,12 @@
 package com.example.tteugaerang.controller;
 
+import com.example.tteugaerang.domain.Community;
 import com.example.tteugaerang.dto.CommunityDTO;
 import com.example.tteugaerang.dto.CommunityFormDTO;
 import com.example.tteugaerang.service.CommunityService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,9 +24,9 @@ public class CommunityController {
 
     //전체 조회
     @GetMapping("/community")
-    public String list(Model model){
-        List<CommunityDTO> communityList = this.communityService.findAllCommunity();
-        model.addAttribute("communityList", communityList);
+    public String list(Model model, @RequestParam(value="page", defaultValue = "0") int page){
+        Page<Community> paging = this.communityService.getList(page);
+        model.addAttribute("paging", paging);
         return "community";
     }
 
