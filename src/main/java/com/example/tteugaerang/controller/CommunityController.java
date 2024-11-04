@@ -24,9 +24,11 @@ public class CommunityController {
 
     //전체 조회
     @GetMapping("/community")
-    public String list(Model model, @RequestParam(value="page", defaultValue = "0") int page){
-        Page<Community> paging = this.communityService.getList(page);
+    public String list(Model model, @RequestParam(value="page", defaultValue = "0") int page,
+                       @RequestParam(value="kw", defaultValue = "") String kw){
+        Page<Community> paging = this.communityService.getList(page,kw);
         model.addAttribute("paging", paging);
+        model.addAttribute("kw", kw);
         return "community";
     }
 

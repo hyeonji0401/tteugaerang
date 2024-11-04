@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,7 @@
                 <label><input type="radio" name="search-type" id="title" value="title" checked> 제목</label>
                 <label><input type="radio" name="search-type" id="content" value="content"> 내용</label>
                 <div class="search-field">
-                    <input type="text" id="search" placeholder="검색">
+                    <input type="text" id="search" placeholder="검색" th:value="${kw}">
                     <button class="search-btn"><i class="fas fa-search"></i></button>
                 </div>
             </section>
@@ -85,11 +85,11 @@
                 }
             </script>
 
+            <!--페이지네이션-->
             <div th:if="${!paging.isEmpty()}" class="pagination">
                 <ul>
                     <li  th:classappend="${!paging.hasPrevious} ? 'disabled'">
-                        <a
-                           th:href="@{|?page=${paging.number-1}|}">
+                        <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number-1}">
                             <span>이전</span>
                         </a>
                     </li>
@@ -97,17 +97,41 @@
                         th:if="${page >= paging.number-5 and page <= paging.number+5}"
                         th:classappend="${page == paging.number} ? 'active'"
                         class="page-item">
-                        <a th:text="${page}" class="page-link" th:href="@{|?page=${page}|}"></a>
+                        <a th:text="${page}" class="page-link" href="javascript:void(0)" th:data-page="${page}"></a>
                     </li>
                     <li th:classappend="${!paging.hasNext} ? 'disabled'">
-                        <a th:href="@{|?page=${paging.number+1}|}">
+                        <a class="page-link" href="javascript:void(0)" th:data-page="${paging.number+1}">
                             <span>다음</span>
                         </a>
                     </li>
                 </ul>
             </div>
+            <form th:action="@{/community}" method="get" id="searchForm">
+                <input type="hidden" id="kw" name="kw" th:value="${kw}">
+                <input type="hidden" id="page" name="page" th:value="${paging.number}">
+            </form>
         </main>
     </div>
+    <script layout:fragment="script" type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function () {
+            // 페이지 번호 버튼 클릭 시 폼 제출
+            const page_elements = document.getElementsByClassName("page-link");
+            Array.from(page_elements).forEach(function (element) {
+                element.addEventListener("click", function () {
+                    document.getElementById("page").value = this.dataset.page;
+                    document.getElementById("searchForm").submit();
+                });
+            });
+
+            // 검색 버튼 클릭 시 폼 제출
+            const btn_search = document.querySelector(".search-btn");
+            btn_search.addEventListener("click", function () {
+                document.getElementById("kw").value = document.getElementById("search").value;
+                document.getElementById("page").value = 0; // 검색 시 0 페이지부터 조회
+                document.getElementById("searchForm").submit();
+            });
+        });
+    </script>
 
     <footer>
         <p>© 2024 뜨개랑. All rights reserved.</p>
