@@ -7,6 +7,9 @@ import com.example.tteugaerang.repository.CommunityRepository;
 import com.example.tteugaerang.service.CommunityService;
 import com.example.tteugaerang.service.UserSecurityService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -50,13 +53,9 @@ public class CommunityServiceImpl implements CommunityService {
 
     //글 전체 조회
     @Override
-    public List<CommunityDTO> findAllCommunity(){
-        List<Community> communityList = this.communityRepository.findAll();
-
-        return communityList.stream()
-                .map(CommunityDTO::new)
-                .collect(Collectors.toList());
-
+    public Page<Community> getList(int page){
+        Pageable pageable = PageRequest.of(page,10);
+        return this.communityRepository.findAll(pageable);
 
     }
 }
