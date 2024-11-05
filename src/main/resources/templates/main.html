@@ -11,8 +11,10 @@
 
     <!-- Header -->
     <header>
-        <h1>뜨개랑</h1>
-        <p>뜨개질의 선두주자</p>
+        <div class="logo-section">
+            <h1>뜨개질의 선두주자</h1>
+            <a href="/" class="no-underline"><h2>뜨개랑</h2></a>
+        </div>
     </header>
 
     <!-- Navigation Bar -->
@@ -26,12 +28,6 @@
         <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
         <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
     </nav>
-
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" placeholder="검색어를 입력하세요">
-        <button id="search-btn">검색</button>
-    </div>
 
     <!-- 주간 인기 게시글 섹션 -->
     <h2 class="section-title">#Weekly</h2>
