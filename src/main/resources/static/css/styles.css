@@ -361,6 +361,17 @@ button[type="submit"]:hover {
   background-color: #f3f3f3;
 }
 
+.notice-list li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.notice-list .post-meta {
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+}
+
 .notice-list .post-meta {
     font-size: 12px;
     color: #888;
@@ -391,22 +402,49 @@ button[type="submit"]:hover {
 .pagination {
     display: flex;
     justify-content: center;
-    gap: 5px;
-    margin-bottom: 30px;
+    padding: 1rem;
+    margin: 0;
+}
+
+.pagination ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none; /* 불릿 포인트 제거 */
+}
+
+.pagination li {
+    margin: 0 5px;
+    list-style: none; /* 불릿 포인트 제거 */
 }
 
 .pagination a {
-    padding: 5px 10px;
+    display: block;
+    padding: 8px 12px;
+    color: #4e5c36;
     text-decoration: none;
-    border: 1px solid #6b8057;
-    color: #6b8057;
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.pagination a.active, .pagination a:hover {
-    background-color: #6b8057;
-    color: white;
+.pagination a:hover {
+    background-color: #4e5c36;
+    color: #fff;
 }
+
+.pagination .disabled a {
+    color: #ccc;
+    pointer-events: none;
+    cursor: default;
+}
+
+.pagination .active a {
+    background-color: #4e5c36;
+    color: #fff;
+    border-color: #4e5c36;
+}
+
 
 /* Footer 스타일 */
 footer {
