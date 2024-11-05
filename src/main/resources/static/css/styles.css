@@ -102,14 +102,6 @@ button:hover {
     background-color: #557b4c;
 }
 
-.section-title {
-    font-size: 1.8em;
-    color: #6b8057;
-    margin-left: 20px;
-    font-weight: bold;
-    font-family: 'Arial', sans-serif;
-}
-
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4개의 이미지를 가로로 배치 */
@@ -176,7 +168,31 @@ footer {
     border-top: 1px solid #e0e0e0;
 }
 
+/* 큰 글씨 크기로 설정 */
+.logo-section h1 {
+    font-family: 'LeeSeoyun', sans-serif;
+    font-size: 2em; /* 서브 텍스트 크기 */
+    color: #648853;
+    margin: 10px 0;
+}
 
+.logo-section h2 {
+    font-family: 'BMJUA', sans-serif;
+    font-size: 5em; /* 제목을 더 크게 설정 */
+    color: #648853;
+    margin: 0;
+    line-height: 1.2; /* 간격 조절 */
+}
+
+/* 섹션 제목을 크게 표시 */
+.section-title {
+    font-family: 'LeeSeoyun', sans-serif;
+    font-size: 3em; /* 커뮤니티 게시판 제목을 크게 설정 */
+    color: #020700;
+    text-align: center;
+    margin-top: 10px; /* 상단 여백을 줄임 */
+    margin-bottom: 10px;
+}
 
 /* login.html 로그인 css */
 .login-container {
@@ -276,22 +292,141 @@ button[type="submit"]:hover {
 }
 
 /* community.html 커뮤니티 css */
-/* 상단 메뉴바 설정 */
-/* community.css로 이동*/
 
-/* 뜨개랑 메인 글씨 눌렀을 때 밎줄 생기는 현상 제거하는 코드 */
+/* 상단 메뉴 */
+.menu-group-1 a, .menu-group-2 a {
+    color: #6b8057;
+    font-weight: bold;
+}
+
+.menu-group-1 a:hover, .menu-group-2 a:hover {
+    color: #557b4c;
+}
+
+/* 검색 섹션 */
+.search-section {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    align-items: center;
+    margin: 20px auto; /* 중앙 정렬 */
+    gap: 5px;
+    max-width: 1200px; /* .wrapper와 동일한 너비 설정 */
+    padding-right: 20px; /* 필요에 따라 여백 조정 */
+}
+
+
+.search-field {
+    display: flex;
+    align-items: center;
+    border: 1px solid #6b8057;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.search-field input {
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+
+.search-field button {
+    background-color: #6b8057;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.search-field button:hover {
+    background-color: #557b4c;
+}
+
+/* 게시글 목록 */
+.notice-list {
+    list-style: none;
+    padding: 0 25px;
+}
+
+.notice-list li {
+  background-color: #fff;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  cursor: pointer; /* 마우스를 올리면 클릭 가능한 것처럼 보이게 설정 */
+  transition: background-color 0.3s ease;
+}
+
+.notice-list li:hover {
+  background-color: #f3f3f3;
+}
+
+.notice-list .post-meta {
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+}
+
+/* 글 작성 버튼 */
+.write-button {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.btn-write {
+    padding: 10px 20px;
+    background-color: #6b8057;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-write:hover {
+    background-color: #557b4c;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.pagination a {
+    padding: 5px 10px;
+    text-decoration: none;
+    border: 1px solid #6b8057;
+    color: #6b8057;
+    border-radius: 5px;
+}
+
+.pagination a.active, .pagination a:hover {
+    background-color: #6b8057;
+    color: white;
+}
+
+/* Footer 스타일 */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #6b8057;
+    font-size: 0.9em;
+    border-top: 1px solid #ddd;
+}
+
+/* no underline */
 .no-underline { 
     text-decoration: none;
-    color: inherit; /* 부모 요소의 색상 상속 */
+    color: inherit;
 }
 
 .no-underline:hover {
-    color: inherit; /* Hover 시에도 색상이 변하지 않도록 */
+    color: inherit;
 }
 
-.com_select{
-    color: #afee6f;
-}
 
 
 
