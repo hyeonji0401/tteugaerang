@@ -372,12 +372,6 @@ button[type="submit"]:hover {
     margin-left: 10px;
 }
 
-.notice-list .post-meta {
-    font-size: 12px;
-    color: #888;
-    margin-left: 10px;
-}
-
 /* 글 작성 버튼 */
 .write-button {
     display: flex;

@@ -10,6 +10,7 @@
 
     <!-- Signup Form -->
     <div class="signup-container">
+        <img src="/images/logo.png" style="height: 50%; width:50%;">
         <h2>회원가입</h2>
         <form id="signup-form" th:action="@{/signup}" th:object="${memberDTO}" method="POST">
             <div th:replace="~{form_errors :: formErrorsFragment}"></div>
