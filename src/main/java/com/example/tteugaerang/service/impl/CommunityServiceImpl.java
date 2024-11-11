@@ -4,6 +4,7 @@ import com.example.tteugaerang.domain.Community;
 import com.example.tteugaerang.domain.Member;
 import com.example.tteugaerang.dto.CommunityDTO;
 import com.example.tteugaerang.dto.CommunityFormDTO;
+import com.example.tteugaerang.exception.DataNotFoundException;
 import com.example.tteugaerang.repository.CommunityRepository;
 import com.example.tteugaerang.service.CommunityService;
 import com.example.tteugaerang.service.UserSecurityService;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.zip.DataFormatException;
 
 @RequiredArgsConstructor
 @Service
@@ -66,6 +68,18 @@ public class CommunityServiceImpl implements CommunityService {
         return this.communityRepository.findAll(spec, pageable);
     }
 
+    //글 상세 조회
+    @Override
+    public Community getCommunity(Long id){
+        Optional<Community> community = this.communityRepository.findById(id);
+        if(community.isPresent()){
+            return community.get();
+        }else{
+            throw new DataNotFoundException("post not found");
+        }
+
+    }
+
     //글 검색
     private Specification<Community> search(String kw){
         return new Specification<Community>() {
@@ -79,5 +93,13 @@ public class CommunityServiceImpl implements CommunityService {
                         cb.like(u1.get("memberName"), "%"+kw+"%"));
             }
         };
+    }
+
+    @Override
+    public void modify(Community community, String title, String content){
+        community.setTitle(title);
+        community.setContent(content);
+        community.setUpdateTime(LocalDateTime.now());
+        this.communityRepository.save(community);
     }
 }

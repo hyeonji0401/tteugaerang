@@ -42,8 +42,8 @@
             <section class="notice-list">
                 <ul class="notice-list" th:each="community, loop : ${paging}">
                     <li>
-                        <a th:href="@{post_detail.html}" th:text="${community.title}"></a>
-                        <span class="post-meta" th:text="'작성자: ' + ${community.writer.getMemberName()} + ' | ' + ${#temporals.format(community.writeTime, 'yyyy-MM-dd HH:mm:ss')}"></span><br>
+                        <a th:href="@{|/community/detail/${community.getId()}|}" th:text="${community.title}"></a>
+                        <span class="post-meta" th:text="'작성자: ' + ${community.writer.getMemberName()} + ' | ' + ${community.getUpdateTime() != null ? #temporals.format(community.getUpdateTime(), 'yyyy-MM-dd HH:mm') + ' (수정됨)' : #temporals.format(community.getWriteTime(), 'yyyy-MM-dd HH:mm')}"></span><br>
                         <span class="post-meta">
                         <span th:if="${#strings.length(community.getContent()) > 10}"
                               th:text="${community.getContent().substring(0, 10)} + '...'"></span>
