@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 상세 - 뜨개랑 커뮤니티</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="/community">Community</a>
+            <a href="/ai">AI</a>
+            <a href="/shop">Shop</a>
+            <a href="/design">Design</a>
+            <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+            <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+            <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+            <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+        </nav>
+        <hr class="thin-line">
+
+        <!-- 기존 post.html -->
+        <main>
+            <h2 class="section-title">글 상세 보기</h2>
+            <div class="post-detail content-padding"> <!-- 패딩 클래스 추가 -->
+                <!-- 게시글 제목 -->
+                <label for="title">제목:</label>
+                <input type="text" id="title" name="title" th:value="${post.title}" readonly class="input-field">
+                
+                <!-- 게시글 내용 -->
+                <label for="content">내용:</label>
+                <textarea id="content" name="content" rows="10" readonly class="textarea-field" th:text="${post.content}"></textarea>
+            </div>
+
+            <!-- 버튼 섹션 -->
+            <div class="post-actions content-padding"> <!-- 패딩 클래스 추가 -->
+                <button class="action-btn" th:onclick="'location.href=\'/community/edit/' + ${post.id} + '\''">수정</button>
+                <button class="action-btn delete-btn" onclick="return confirm('정말 삭제하시겠습니까?');" th:formaction="@{/community/delete/{id}(id=${post.id})}" formmethod="post">삭제</button>
+            </div>
+
+            <!-- 댓글 섹션 -->
+            <div class="comment-section content-padding"> <!-- 패딩 클래스 추가 -->
+                <!-- 댓글 목록 -->
+                <ul class="comment-list">
+                    <li th:each="comment : ${comments}">
+                        <p class="comment-author"><span th:text="${comment.author}">작성자명</span> | <span class="comment-date" th:text="${comment.date}">2024-11-11</span></p>
+                        <p class="comment-content" th:text="${comment.content}">댓글 내용</p>
+                    </li>
+                </ul>
+
+                <!-- 댓글 작성 폼 -->
+                <form th:action="@{/community/{id}/comment(id=${post.id})}" method="POST" class="comment-form">
+                    <label for="comment-content">댓글 내용:</label>
+                    <textarea id="comment-content" name="content" rows="3" required class="textarea-field"></textarea>
+                    <button type="submit" class="submit-comment-btn">댓글 작성</button>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2024 뜨개랑. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
