@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글 작성 - 뜨개랑 커뮤니티</title>
-    <link rel="stylesheet" href="/css/community.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="wrapper">
-        <header>
-            <nav>
-                <ul class="menu">
-                    <div class="menu-group-1">
-                        <li><a href="/community">Community</a></li>
-                        <li><a href="/ai">AI</a></li>
-                        <li><a href="/shop">Shop</a></li>
-                        <li><a href="/design">Design</a></li>
-                    </div>
-                </ul>
-            </nav>
-            <hr class="thin-line">
-        </header>
+        <nav>
+            <a href="/community">Community</a>
+            <a href="/ai">AI</a>
+            <a href="/shop">Shop</a>
+            <a href="/design">Design</a>
+            <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+            <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+            <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+            <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+        </nav>
+        <hr class="thin-line">
 
         <main>
             <h2 class="section-title">글 작성하기</h2>
@@ -32,7 +30,7 @@
                 <label for="content">내용:</label>
                 <textarea id="content"  name="content" th:field="*{content}" rows="10" required class="textarea-field"></textarea>
                 
-                <button type="submit" class="submit-btn">작성 완료</button>
+                <button type="submit" class="submit-write-btn">작성 완료</button>
             </form>
         </main>
         <footer>
