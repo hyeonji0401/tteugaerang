@@ -22,7 +22,7 @@
 
         <main>
             <h2 class="section-title">글 작성하기</h2>
-            <form class="write-form" th:action="@{/community/create}" th:object="${communityFormDTO}" method="POST">
+            <form class="write-form"  th:object="${communityFormDTO}" method="POST">
                 <div th:replace="~{form_errors :: formErrorsFragment}"></div>
                 <label for="title">제목:</label>
                 <input type="text" id="title" name="title" th:field="*{title}" required class="input-field">

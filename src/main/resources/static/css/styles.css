@@ -674,15 +674,15 @@ footer {
     transition: background-color 0.3s;
 }
 
-.action-btn:hover {
+form .action-btn:hover {
     background-color: #4e5c36;
 }
 
-.delete-btn {
+form .delete-btn {
     background-color: #a94442;
 }
 
-.delete-btn:hover {
+form .delete-btn:hover {
     background-color: #922b21;
 }
 

@@ -30,4 +30,7 @@ public class Community {
     @Column(nullable = false)
     private LocalDateTime writeTime;
 
+    @Column
+    private LocalDateTime updateTime;
+
 }
