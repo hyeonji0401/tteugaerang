@@ -52,7 +52,7 @@
                     </button>
                 </form>
 
-                <!--삭제 버튼/ 색상 변경 필요-->
+                <!--삭제 버튼-->
                 <form th:action="@{|/community/delete/${community.getId()}|}" method="post"
                       onsubmit="return confirm('정말 삭제하시겠습니까?');">
                     <button type="submit" class="delete-btn"
@@ -66,25 +66,48 @@
                 </form>
             </div>
 
-<!--            &lt;!&ndash; 댓글 섹션 &ndash;&gt;-->
-<!--            <div class="comment-section content-padding"> &lt;!&ndash; 패딩 클래스 추가 &ndash;&gt;-->
-<!--                &lt;!&ndash; 댓글 목록 &ndash;&gt;-->
-<!--                <ul class="comment-list">-->
-<!--                    <li th:each="comment : ${comments}">-->
-<!--                        <p class="comment-author"><span th:text="${comment.author}">작성자명</span> | <span class="comment-date" th:text="${comment.date}">2024-11-11</span></p>-->
-<!--                        <p class="comment-content" th:text="${comment.content}">댓글 내용</p>-->
-<!--                    </li>-->
-<!--                </ul>-->
+            <!-- 댓글 섹션 -->
+            <div class="comment-section content-padding"> <!-- 패딩 클래스 추가 -->
+                <!-- 댓글 목록 -->
+                <ul class="comment-list">
+                    <li th:each="comment : ${community.getCommentList()}">
+                        <p class="comment-author"><span th:text="${comment.getWriter().getMemberName()}">작성자명</span> | <span class="comment-date" th:text="${comment.getUpdateTime() != null ? #temporals.format(comment.getUpdateTime(), 'yyyy-MM-dd HH:mm') + ' (수정됨)' : #temporals.format(comment.getWriteTime(), 'yyyy-MM-dd HH:mm')}"></span></p>
+                        <p class="comment-content" th:text="${comment.getContent()}">댓글 내용</p>
+                        <!--수정 버튼-->
+                        <form th:action="@{|/comment/modify/${comment.getId()}|}" method="get">
+                            <button type="submit" class="action-btn"
+                                    sec:authorize="isAuthenticated()"
+                                    th:if="${#authentication.getPrincipal() != null
+                    and comment.getWriter() != null
+                    and comment.getWriter().getEmail() != null
+                    and #authentication.getPrincipal().getUsername() == comment.getWriter().getEmail()}">
+                                수정
+                            </button>
+                        </form>
+                        <!--삭제 버튼-->
+                        <form th:action="@{|/comment/delete/${comment.getId()}|}" method="post"
+                              onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                            <button type="submit" class="delete-btn"
+                                    sec:authorize="isAuthenticated()"
+                                    th:if="${#authentication.getPrincipal() != null
+                      and comment.getWriter() != null
+                      and comment.getWriter().getEmail() != null
+                      and #authentication.getPrincipal().getUsername() == comment.getWriter().getEmail()}">
+                                삭제
+                            </button>
+                        </form>
+                    </li>
+                </ul>
 
-<!--                &lt;!&ndash; 댓글 작성 폼 &ndash;&gt;-->
-<!--                <form th:action="@{/community/{id}/comment(id=${post.id})}" method="POST" class="comment-form">-->
-<!--                    <label for="comment-content">댓글 내용:</label>-->
-<!--                    <textarea id="comment-content" name="content" rows="3" required class="textarea-field"></textarea>-->
-<!--                    <button type="submit" class="submit-comment-btn">댓글 작성</button>-->
-<!--                </form>-->
-<!--            </div>-->
+                <!-- 댓글 작성 폼 -->
+                <form th:action="@{|/community/comment/${community.getId()}|}" method="POST" class="comment-form">
+                    <label for="comment-content">댓글 내용:</label>
+                    <textarea id="comment-content" name="content" rows="3" required class="textarea-field"></textarea>
+                    <button type="submit" class="submit-comment-btn">댓글 작성</button>
+                </form>
+            </div>
+
         </main>
-
         <footer>
             <p>© 2024 뜨개랑. All rights reserved.</p>
         </footer>
