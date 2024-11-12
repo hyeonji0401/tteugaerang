@@ -1,19 +1,17 @@
 package com.example.tteugaerang.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Getter
 @Setter
-public class Community {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,8 +20,9 @@ public class Community {
     @JoinColumn(name = "writer" , nullable=false)
     private Member writer;
 
-    @Column(nullable = false)
-    private String title;
+    @ManyToOne
+    @JoinColumn(name="community", nullable = false)
+    private Community community;
 
     @Column(nullable = false)
     private String content;
@@ -33,8 +32,5 @@ public class Community {
 
     @Column
     private LocalDateTime updateTime;
-
-    @OneToMany(mappedBy = "community", cascade = CascadeType.REMOVE)
-    private List<Comment> commentList;
 
 }
