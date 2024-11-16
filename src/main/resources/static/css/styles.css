@@ -1,27 +1,12 @@
 @font-face {
-    font-family: 'BMJUA';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'LeeSeoyun';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'InkLipquid';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-family: 'KCC-Ganpan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,7 +21,7 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     border-bottom: 1px solid #e0e0e0;
 }
 
@@ -51,8 +36,8 @@ header p {
 }
 
 nav {
-    text-align: right;
-    padding: 10px 20px;
+    text-align: center;
+    padding: 20px 30px;
 }
 
 nav a {
@@ -116,7 +101,8 @@ button:hover {
     color: #6b8057;
     text-align: center;
     font-weight: bold;
-    font-family: 'Arial', sans-serif;
+    font-family: 'KCC-Ganpan', sans-serif;
+    font-weight: 10;
 }
 
 .shop-slider {
@@ -170,15 +156,16 @@ footer {
 
 /* 큰 글씨 크기로 설정 */
 .logo-section h1 {
-    font-family: 'LeeSeoyun', sans-serif;
-    font-size: 2em; /* 서브 텍스트 크기 */
+    font-family: 'KCC-Ganpan',sans-serif;
+    font-weight: 20;
+    font-size: 1.8em; /* 서브 텍스트 크기 */
     color: #648853;
     margin: 10px 0;
 }
 
 .logo-section h2 {
-    font-family: 'BMJUA', sans-serif;
-    font-size: 5em; /* 제목을 더 크게 설정 */
+    font-family: 'HakgyoansimDunggeunmisoTTF-B', sans-serif;
+    font-size: 4em; /* 제목을 더 크게 설정 */
     color: #648853;
     margin: 0;
     line-height: 1.2; /* 간격 조절 */
@@ -186,9 +173,10 @@ footer {
 
 /* 섹션 제목을 크게 표시 */
 .section-title {
-    font-family: 'LeeSeoyun', sans-serif;
-    font-size: 3em; /* 커뮤니티 게시판 제목을 크게 설정 */
-    color: #020700;
+    font-family: 'KCC-Ganpan', sans-serif;
+    font-weight: 10;
+    font-size: 1.8em; /* 커뮤니티 게시판 제목을 크게 설정 */
+    color: #6b8057;
     text-align: center;
     margin-top: 10px; /* 상단 여백을 줄임 */
     margin-bottom: 10px;
