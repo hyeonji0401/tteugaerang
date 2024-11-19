@@ -38,9 +38,11 @@ public class CommunityController {
 
     //상세 조회
     @GetMapping(value="/community/detail/{id}")
-    public String detail(Model model, @PathVariable("id") Long id){
+    public String detail(Model model, @PathVariable("id") Long id, @RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "kw", defaultValue = "") String kw){
         Community community = this.communityService.getCommunity(id);
         model.addAttribute("community", community);
+        model.addAttribute("page", page);  // 페이지 번호 전달
+        model.addAttribute("kw", kw);      // 검색어 전달
         return "post";
     }
 

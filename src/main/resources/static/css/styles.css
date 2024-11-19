@@ -150,10 +150,25 @@ button:hover {
 }
 
 .item-shopping {
-    flex: 0 0 auto; /* 플렉스 컨테이너에서 고정된 너비 사용 */
-    width: 200px; /* 각 이미지의 너비 */
+    flex: 0 0 auto; /* 고정된 너비 사용 */
+    width: 200px; /* 컨테이너 너비 */
+    height: 200px; /* 컨테이너 높이 */
     background-color: #ccc;
     position: relative;
+    overflow: hidden; /* 넘치는 콘텐츠 숨기기 */
+    border-radius: 10px; /* 컨테이너 모서리 둥글게 */
+    display: flex; /* 내부 요소 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+}
+
+.item-shopping img {
+    max-width: 100%; /* 컨테이너 너비를 넘지 않도록 설정 */
+    max-height: 100%; /* 컨테이너 높이를 넘지 않도록 설정 */
+    margin: auto; /* 이미지가 중앙에 위치하도록 설정 */
+    display: block; /* 이미지를 블록 요소로 설정 */
+    object-fit: contain; /* 이미지 비율 유지하며 컨테이너에 맞춤 */
+    border-radius: 10px; /* 이미지 모서리 둥글게 설정 */
 }
 
 .item img {
@@ -462,13 +477,14 @@ footer {
 .ai-banner {
     position: relative;
     text-align: center;
-    color: white;
+    color: #000000;
     overflow: hidden;
 }
 .banner-img {
     width: 100%;
-    filter: brightness(0.7);
+    filter: brightness(0.2);
 }
+
 .banner-text {
     position: absolute;
     top: 50%;
@@ -487,7 +503,7 @@ footer {
     margin-bottom: 20px;
 }
 .coming-soon-btn {
-    background-color: #ff7e35;
+    background-color: #6b8057;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
@@ -497,7 +513,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 .coming-soon-btn:hover {
-    background-color: #e67330;
+    background-color: #4b5e39;
 }
 
 /* AI Intro Text 가운데 정렬 */
