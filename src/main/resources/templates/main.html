@@ -102,4 +102,81 @@
     </footer>
 
 </body>
+<script>
+    const container = document.querySelector('.container-shopping');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const itemWidth = document.querySelector('.item-shopping').offsetWidth + 15; // 각 아이템 너비 + 간격
+    const totalItems = document.querySelectorAll('.item-shopping').length; // 전체 아이템 개수
+
+    // 현재 스크롤 위치 추적
+    let currentIndex = 0;
+
+    // 드래그 관련 변수
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    // 마우스 버튼을 눌렀을 때
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - container.offsetLeft; // 시작 X 좌표
+        scrollLeft = container.scrollLeft; // 현재 스크롤 위치
+    });
+
+    // 마우스를 움직였을 때
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault(); // 기본 동작 방지
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2; // 이동 속도 조정
+        container.scrollLeft = scrollLeft - walk; // 스크롤 이동
+    });
+
+    // 마우스를 떼었을 때
+    container.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // 마우스가 컨테이너 밖으로 나갔을 때
+    container.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+
+    // 이전 버튼 클릭 시 스크롤 이동
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex === 0) {
+            container.scrollTo({
+                left: (totalItems - 1) * itemWidth,
+                behavior: 'smooth'
+            });
+            currentIndex = totalItems - 1;
+        } else {
+            container.scrollBy({
+                left: -itemWidth, // 왼쪽으로 이동
+                behavior: 'smooth' // 부드럽게 이동
+            });
+            currentIndex--;
+        }
+    });
+
+    // 다음 버튼 클릭 시 스크롤 이동
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex === totalItems - 1) {
+            container.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+            currentIndex = 0;
+        } else {
+            container.scrollBy({
+                left: itemWidth, // 오른쪽으로 이동
+                behavior: 'smooth' // 부드럽게 이동
+            });
+            currentIndex++;
+        }
+    });
+
+
+</script>
 </html>
