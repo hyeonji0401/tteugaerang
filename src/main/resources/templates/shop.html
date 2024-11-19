@@ -30,16 +30,76 @@
     </nav>
 
     <!-- Content Section -->
-    <div class="shop-container">
-        <h2>뜨개랑 쇼핑몰</h2>
-        <p>다양한 뜨개질 용품을 만나보세요!</p>
-        <ul class="shop-list">
-            <li><a href="#">실과 바늘</a></li>
-            <li><a href="#">뜨개질 키트</a></li>
-            <li><a href="#">패턴 책자</a></li>
-            <li><a href="#">뜨개질 악세서리</a></li>
-        </ul>
-    </div>
+
+    <main>
+        <div class="shop-navbar">
+            <ul class="shop-nav-menu">
+                <li><a href="#yarn">실과 바늘</a></li>
+                <li><a href="#kits">뜨개질 키트</a></li>
+                <li><a href="#books">패턴 책자</a></li>
+                <li><a href="#accessories">뜨개질 악세서리</a></li>
+            </ul>
+        </div>
+
+        <!-- 정렬 및 검색 바 -->
+        <div class="shop-filter-bar">
+            <div class="shop-sort-options">
+                <label for="shop-sort-select">정렬 기준:</label>
+                <select id="shop-sort-select" class="shop-sort-select">
+                    <option value="popularity">인기순</option>
+                    <option value="latest">최신순</option>
+                    <option value="recommended">추천순</option>
+                </select>
+            </div>
+            <div class="shop-search-options">
+                <label>
+                    <input type="radio" name="shop-search-type" value="name"> 이름
+                </label>
+                <label>
+                    <input type="radio" name="shop-search-type" value="title" checked> 제목
+                </label>
+                <label>
+                    <input type="radio" name="shop-search-type" value="content"> 내용
+                </label>
+                <input type="text" placeholder="검색어를 입력하세요..." class="shop-search-input">
+                <button class="shop-search-button">검색</button>
+            </div>
+        </div>
+
+        <div class="shop-gallery">
+            <div class="shop-row">
+                <div class="shop-item"><img src="yarn3.jpg" alt="다양한 실"></div>
+                <div class="shop-item"><img src="needles.jpg" alt="뜨개 바늘 세트"></div>
+                <div class="shop-item"><img src="hooks2.jpg" alt="코바늘"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+            </div>
+            <div class="shop-row">
+                <div class="shop-item"><img src="yarn3.jpg" alt="다양한 실"></div>
+                <div class="shop-item"><img src="needles.jpg" alt="뜨개 바늘 세트"></div>
+                <div class="shop-item"><img src="hooks2.jpg" alt="코바늘"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+            </div>
+            <div class="shop-row">
+                <div class="shop-item"><img src="yarn3.jpg" alt="다양한 실"></div>
+                <div class="shop-item"><img src="needles.jpg" alt="뜨개 바늘 세트"></div>
+                <div class="shop-item"><img src="hooks2.jpg" alt="코바늘"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+            </div>
+            <div class="shop-row">
+                <div class="shop-item"><img src="yarn3.jpg" alt="다양한 실"></div>
+                <div class="shop-item"><img src="needles.jpg" alt="뜨개 바늘 세트"></div>
+                <div class="shop-item"><img src="hooks2.jpg" alt="코바늘"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+                <div class="shop-item"><img src="cotton.jpg" alt="코튼 실"></div>
+            </div>
+        </div>
+    </main>
+
+
+
 
     <!-- Footer -->
     <footer>
