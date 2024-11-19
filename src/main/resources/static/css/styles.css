@@ -734,7 +734,6 @@ footer {
 }
 
 /* 페이지네이션 컨테이너 */
-/* 페이지네이션 컨테이너 */
 .shop-pagination {
     display: flex;
     justify-content: center; /* 중앙 정렬 */
@@ -851,7 +850,7 @@ footer {
 
 /* 상품 가격 */
 .design-product-price {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #4e5c36;
 }
