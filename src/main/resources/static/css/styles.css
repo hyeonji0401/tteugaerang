@@ -574,32 +574,59 @@ footer {
 .shop-gallery {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px; /* 갤러리 행 사이 간격 */
     padding: 20px;
 }
 
 .shop-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 반응형 그리드 */
+    gap: 25px; /* 항목 간 간격 */
     padding: 20px;
-    width: 90%;
+    width: 90%; /* 컨테이너 너비 */
     margin: 0 auto;
     box-sizing: border-box;
 }
 
 .shop-item {
-    background-color: #ccc;
-    width: 100%;
-    padding-top: 100%;
-    position: relative;
+    display: flex;
+    flex-direction: column; /* 이미지와 텍스트를 세로로 배치 */
+    align-items: center; /* 중앙 정렬 */
+    justify-content: flex-start; /* 위쪽부터 배치 */
+    background-color: #fff; /* 배경색 */
+    border-radius: 10px;
+    overflow: hidden; /* 이미지가 텍스트 영역 밖으로 나가지 않도록 */
+    aspect-ratio: auto; /* 정사각형 비율을 해제 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    position: relative; /* 내부 요소의 절대 위치 조정을 지원 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 기본 트랜지션 */
+}
+
+.shop-item:hover {
+    transform: translateY(-5px); /* 호버 시 위로 이동 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 강화 */
 }
 
 .shop-item img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover; /* 이미지를 컨테이너에 맞춤 */
+    display: block; /* 이미지가 올바르게 표시되도록 */
+    z-index: 1; /* 텍스트보다 낮은 레이어에 배치 */
+}
+
+.shop-item-name {
+    margin-top: -10px; /* 이미지와 텍스트 간 간격 */
+    font-size: 1rem; /* 텍스트 크기 */
+    font-weight: bold; /* 텍스트 두께 */
+    color: #333; /* 텍스트 색상 */
+    text-align: center; /* 중앙 정렬 */
+    background-color: #ffffff; /* 텍스트 배경 */
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
+    z-index: 2; /* 텍스트를 이미지보다 위로 올림 */
+    position: relative; /* 텍스트의 레이어 조정 */
 }
 
 .shop-navbar {
@@ -639,9 +666,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    margin: 20px auto 0px auto;
-    margin-left: 120px;
-    margin-right: 120px;
+    max-width: 1250px; /* 최대 너비 제한 */
+    margin: 30px auto 20px auto;
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -706,6 +732,61 @@ footer {
 .shop_select {
     color: #afee6f;
 }
+
+/* 페이지네이션 컨테이너 */
+/* 페이지네이션 컨테이너 */
+.shop-pagination {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    padding: 1rem;
+    margin: 0;
+}
+
+/* 페이지네이션 목록 */
+.shop-pagination ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none; /* 불릿 포인트 제거 */
+}
+
+/* 각 페이지 아이템 */
+.shop-pagination li {
+    margin: 0 5px; /* 페이지 간 간격 */
+    list-style: none; /* 불릿 포인트 제거 */
+}
+
+/* 각 페이지 링크 */
+.shop-pagination a {
+    display: block;
+    padding: 8px 12px;
+    color: #4e5c36;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s; /* 호버 애니메이션 */
+}
+
+/* 페이지 링크 호버 효과 */
+.shop-pagination a:hover {
+    background-color: #4e5c36;
+    color: #fff;
+}
+
+/* 비활성화된 페이지 (이전/다음 버튼) */
+.shop-pagination .disabled a {
+    color: #ccc;
+    pointer-events: none; /* 클릭 불가 */
+    cursor: default;
+}
+
+/* 활성화된 페이지 */
+.shop-pagination .active a {
+    background-color: #4e5c36;
+    color: #fff;
+    border-color: #4e5c36;
+}
+
 
 
 /* design.html 연락처 페이지 CSS */
