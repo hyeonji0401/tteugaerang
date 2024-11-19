@@ -23,6 +23,7 @@
         <!-- 기존 post.html -->
         <main>
             <h2 class="section-title">글 상세 보기</h2>
+            <a th:href="@{/community?page={page}&kw={kw}(page=${page}, kw=${kw})}" class="back-button">뒤로 가기</a>
             <div class="post-detail content-padding"> <!-- 패딩 클래스 추가 -->
                 <span th:text="|작성자: ${community.getWriter().getMemberName()}|"></span><br>
                 <span>
@@ -100,7 +101,7 @@
                 </ul>
 
                 <!-- 댓글 작성 폼 -->
-                <form th:action="@{|/community/comment/${community.getId()}|}" method="POST" class="comment-form">
+                <form th:action="@{|/community/comment/${community.getId()}|}" method="POST" class="comment-form" sec:authorize="isAuthenticated()" >
                     <label for="comment-content">댓글 내용:</label>
                     <textarea id="comment-content" name="content" rows="3" required class="textarea-field"></textarea>
                     <button type="submit" class="submit-comment-btn">댓글 작성</button>
