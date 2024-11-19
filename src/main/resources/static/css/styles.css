@@ -145,6 +145,8 @@ button:hover {
     width: 100%;
     padding-top: 100%;
     position: relative;
+    overflow: hidden; /* 회색 사각형 밖으로 내용이 넘치지 않게 설정 */
+    border-radius: 10px; /* 모서리를 둥글게 설정할 경우 */
 }
 
 .item-shopping {
@@ -155,10 +157,13 @@ button:hover {
 }
 
 .item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    object-fit: cover; /* 이미지가 컨테이너에 꽉 차도록 조정 */
+    border-radius: 10px; /* 이미지의 모서리도 둥글게 설정 */
 }
 
 footer {
@@ -495,38 +500,102 @@ footer {
     background-color: #e67330;
 }
 
-/* AI 설명 섹션 스타일 */
-.ai-description-section {
-    display: flex;
-    justify-content: center; /* 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    gap: 40px; /* 텍스트와 이미지 사이 간격 조정 */
-    padding: 30px 20px;
-    background-color: #f9f9f9;
+/* AI Intro Text 가운데 정렬 */
+.ai-intro-text {
+    text-align: center;
+    padding: 200px 20px; /* 여백 추가 */
 }
 
-.description-container {
-    max-width: 40%; /* 가운데로 정렬되었을 때 크기를 적절하게 조정 */
-    text-align: left; /* 텍스트 가운데 정렬 */
+.ai-intro-text h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
 }
 
-.description-container h1 {
-    font-size: 2.5em; /* 글씨 크기 조정 */
+.ai-intro-text p {
+    font-size: 1.5em;
     color: #333;
 }
 
-.description-container p {
-    font-size: 1.2em;
-    color: #666;
-    margin-top: 10px;
+.highlight {
+    color: #6b8057; /* 뜨개랑에 강조 색상 적용 */
+    font-weight: bold;
 }
 
-.ai-lens-image img {
-    max-width: 500px; /* 이미지 크기 확대 */
+/* 첫 번째 섹션 스타일 */
+.ai-description-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+.ai-description-section .description-container {
+    max-width: 400px;
+    text-align: left;
+}
+
+.ai-description-section h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ai-description-section p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.ai-description-section .ai-lens-image img {
+    width: 400px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 두 번째 섹션 스타일 */
+.ai-description-section-alt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+.ai-description-section-alt .description-container {
+    max-width: 400px;
+    text-align: left;
+}
+
+.ai-description-section-alt h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ai-description-section-alt p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.ai-description-section-alt .ai-lens-image img {
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 이미지 확대 효과 */
+.ai-description-section .ai-lens-image img,
+.ai-description-section-alt .ai-lens-image img {
+    transition: transform 0.3s ease;
+}
+
+.ai-description-section .ai-lens-image img:hover,
+.ai-description-section-alt .ai-lens-image img:hover {
+    transform: scale(1.05); /* 살짝 확대 */
+}
 
 
 /* shop.html 쇼핑 페이지 CSS */
