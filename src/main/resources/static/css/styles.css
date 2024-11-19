@@ -787,56 +787,110 @@ footer {
     border-color: #4e5c36;
 }
 
-
-
 /* design.html 연락처 페이지 CSS */
-.design-container {
-    text-align: center;
-    margin: 50px auto;
+.design-product-detail {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* 이미지와 정보 사이 간격 */
     padding: 20px;
-    max-width: 800px;
-    border: 1px solid #e0e0e0;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
 }
 
-.design-container h2 {
-    color: #6b8057;
-    font-size: 2em;
-    margin-bottom: 20px;
+/* 상품 이미지 */
+.design-product-image {
+    flex: 1.0; /* 이미지가 더 큰 비율을 차지하도록 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.design-container p {
-    font-size: 1.2em;
+.design-product-image img {
+    width: 100%; /* 컨테이너 너비에 맞게 조정 */
+    max-width: 100%; /* 부모 요소 너비에 맞게 조정 */
+    height: auto; /* 이미지 비율 유지 */
+    border-radius: 10px; /* 둥근 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 상품 정보 섹션 */
+.design-product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 상품 제목 */
+.design-product-title {
+    font-size: 1.5rem;
+    font-weight: bold;
     color: #333;
+    margin: 0;
+}
+
+/* 난이도 배지 스타일 */
+.design-level-badge {
+    display: inline-block;
+    background-color: #ff7a7a;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 5px;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+    max-width: max-content;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 상품 가격 */
+.design-product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4e5c36;
+}
+
+/* 상품 설명 */
+.design-product-description {
+    font-size: 1rem;
+    color: #555;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
-.design-list {
-    list-style: none;
-    padding: 0;
+/* 다운로드 버튼 */
+.design-product-button {
+    background-color: #96ae8b;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin: 0; /* 마진 제거 */
 }
 
-.design-list li {
-    margin: 10px 0;
+.design-product-button:hover {
+    background-color: #778a6d;
 }
 
-.design-list a {
-    text-decoration: none;
-    color: #6b8057;
+/* 추가 정보 */
+.design-product-details {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #333;
 }
-
-.design-list a:hover {
-    text-decoration: underline;
-}
-
-/* Navigation Bar에서 연락처 메뉴 강조 */
-.design_select {
-    color: #afee6f;
-}
-
 
 /* 글 작성 화면 css */
 .write-form {
