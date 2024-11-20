@@ -645,7 +645,7 @@ footer {
 
 
 
-/* AI 소개 배너 스타일 */
+/* Shop 소개 배너 스타일 */
 .shop-banner {
     position: relative;
     text-align: center;
@@ -674,19 +674,6 @@ footer {
     margin-top: 10px;
     margin-bottom: 20px;
 }
-.shop-coming-soon-btn {
-    background-color: #6b8057;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    color: white;
-    cursor: pointer;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-}
-.shop-coming-soon-btn:hover {
-    background-color: #4b5e39;
-}
 
 /* shop Intro Text 가운데 정렬 */
 .shop-intro-text {
@@ -703,11 +690,6 @@ footer {
 .shop-intro-text p {
     font-size: 1.5em;
     color: #333;
-}
-
-.shop-highlight {
-    color: #6b8057; /* 뜨개랑에 강조 색상 적용 */
-    font-weight: bold;
 }
 
 /* shop.html 쇼핑 페이지 CSS */
@@ -1000,6 +982,96 @@ footer {
     border-color: #4e5c36;
 }
 
+
+/* Design 소개 배너 스타일 */
+.design-banner {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+.design-banner-img {
+    width: 100%;
+    filter: brightness(0.2);
+}
+
+.design-banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 900px;
+}
+.design-banner-text h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+.design-banner-text p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* shop Intro Text 가운데 정렬 */
+.design-intro-text {
+    text-align: center;
+    padding: 200px 20px; /* 여백 추가 */
+}
+
+.design-intro-text h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
+}
+
+.design-intro-text p {
+    font-size: 1.5em;
+    color: #333;
+}
+/* Main 컨테이너 */
+.design-main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 왼쪽 여백 */
+.design-left-space {
+    flex: 0.5; /* 여백 크기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+/* 오른쪽 여백 */
+.design-right-space {
+    flex: 0.5; /* 여백 크기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+/* 여백 텍스트 */
+.design-space-text {
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: center;
+}
+
 /* design.html 연락처 페이지 CSS */
 .design-product-detail {
     display: flex;
@@ -1011,6 +1083,7 @@ footer {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 900px;
     margin: 20px auto;
+    margin-bottom: 100px;
     font-family: Arial, sans-serif;
 }
 
