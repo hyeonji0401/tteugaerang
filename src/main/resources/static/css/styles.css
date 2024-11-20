@@ -345,7 +345,7 @@ button[type="submit"]:hover {
     align-items: center;
     margin: 20px auto; /* 중앙 정렬 */
     gap: 5px;
-    max-width: 1200px; /* .wrapper와 동일한 너비 설정 */
+    max-width: 1200px; /* .wrapper 와 동일한 너비 설정 */
     padding-right: 20px; /* 필요에 따라 여백 조정 */
 }
 
@@ -920,7 +920,7 @@ footer {
     color: #000000;
 }
 
-/* Navigation Bar에서 쇼핑 메뉴 강조 */
+/* Navigation 에서 쇼핑 메뉴 강조 */
 .shop_select {
     background-color: #eaeaea;
     border-radius: 5px;
@@ -1069,7 +1069,7 @@ footer {
     text-align: center;
 }
 
-/* design.html 연락처 페이지 CSS */
+/* design.html CSS */
 .design-product-detail {
     display: flex;
     flex-direction: row;
@@ -1079,8 +1079,7 @@ footer {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 900px;
-    margin: 20px auto;
-    margin-bottom: 100px;
+    margin: 20px auto 100px;
     font-family: Arial, sans-serif;
 }
 
