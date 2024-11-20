@@ -19,7 +19,9 @@ body {
 }
 
 header {
+    flex-direction: column;
     text-align: center;
+    align-items: center;
     padding: 20px;
     background-color: rgb(255, 255, 255);
     border-bottom: 1px solid #e0e0e0;
@@ -44,6 +46,12 @@ nav a {
     margin: 0 10px;
     text-decoration: none;
     color: #6b8057;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
 
 button {
@@ -178,6 +186,10 @@ button:hover {
 }
 
 
+.community_select {
+    background-color: #eaeaea;
+    border-radius: 5px;
+}
 
 #prev-btn, #next-btn {
     z-index: 10;
@@ -198,7 +210,6 @@ footer {
     background-color: #f3f3f3;
     border-top: 1px solid #e0e0e0;
 }
-
 /* 큰 글씨 크기로 설정 */
 .logo-section h1 {
     font-family: 'KCC-Ganpan',sans-serif;
@@ -626,6 +637,11 @@ footer {
     transform: scale(1.05); /* 살짝 확대 */
 }
 
+.ai_select {
+    background-color: #eaeaea;
+    border-radius: 5px;
+}
+
 /* shop.html 쇼핑 페이지 CSS */
 .shop-container {
     text-align: center;
@@ -829,7 +845,8 @@ footer {
 
 /* Navigation Bar에서 쇼핑 메뉴 강조 */
 .shop_select {
-    color: #afee6f;
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
 
 /* 페이지네이션 컨테이너 */
@@ -933,7 +950,8 @@ footer {
 
 /* Navigation Bar에서 연락처 메뉴 강조 */
 .design_select {
-    color: #afee6f;
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
 
 
