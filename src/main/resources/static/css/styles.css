@@ -642,9 +642,6 @@ footer {
     border-radius: 5px;
 }
 
-
-
-
 /* Shop 소개 배너 스타일 */
 .shop-banner {
     position: relative;
@@ -1030,7 +1027,7 @@ footer {
     color: #333;
 }
 /* Main 컨테이너 */
-.design-main {
+.design-main {/*(정식 서비스 시 제거)*/
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -1042,7 +1039,7 @@ footer {
 }
 
 /* 왼쪽 여백 */
-.design-left-space {
+.design-left-space {/*(정식 서비스 시 제거)*/
     flex: 0.5; /* 여백 크기 */
     display: flex;
     justify-content: center;
@@ -1054,7 +1051,7 @@ footer {
 }
 
 /* 오른쪽 여백 */
-.design-right-space {
+.design-right-space {/*(정식 서비스 시 제거)*/
     flex: 0.5; /* 여백 크기 */
     display: flex;
     justify-content: center;
@@ -1066,7 +1063,7 @@ footer {
 }
 
 /* 여백 텍스트 */
-.design-space-text {
+.design-space-text {/*(정식 서비스 시 제거)*/
     font-size: 1.2rem;
     color: #000000;
     text-align: center;
