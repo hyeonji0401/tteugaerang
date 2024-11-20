@@ -1,27 +1,12 @@
 @font-face {
-    font-family: 'BMJUA';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
-    font-weight: normal;
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'LeeSeoyun';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cafe24Ssurround';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'InkLipquid';
-    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff') format('woff');
+    font-family: 'KCC-Ganpan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -34,9 +19,11 @@ body {
 }
 
 header {
+    flex-direction: column;
     text-align: center;
+    align-items: center;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     border-bottom: 1px solid #e0e0e0;
 }
 
@@ -51,14 +38,20 @@ header p {
 }
 
 nav {
-    text-align: right;
-    padding: 10px 20px;
+    text-align: center;
+    padding: 20px 30px;
 }
 
 nav a {
     margin: 0 10px;
     text-decoration: none;
     color: #6b8057;
+    padding: 5px 10px;
+}
+
+nav a:hover {
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
 
 button {
@@ -111,54 +104,104 @@ button:hover {
     margin: 0 auto; /* 자동 여백으로 중앙 정렬 */
 }
 
+.item {
+    background-color: #ccc;
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden; /* 회색 사각형 밖으로 내용이 넘치지 않게 설정 */
+    border-radius: 10px; /* 모서리를 둥글게 설정할 경우 */
+}
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 컨테이너에 꽉 차도록 조정 */
+    border-radius: 10px; /* 이미지의 모서리도 둥글게 설정 */
+}
+
+
 .section-title-shopping{
     font-size: 1.8em;
     color: #6b8057;
     text-align: center;
     font-weight: bold;
-    font-family: 'Arial', sans-serif;
+    font-family: 'KCC-Ganpan', sans-serif;
+    font-weight: 10;
 }
 
 .shop-slider {
+    position:relative;
+    overflow: hidden;
+    width:80%;
+    margin:auto;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+
 }
 
 .container-shopping {
     display: flex;
-    overflow-x: scroll; /* 가로 스크롤을 활성화 */
     scroll-behavior: smooth; /* 부드러운 스크롤 */
-    gap: 10px;
     padding: 10px 0; /* 상하 패딩 */
-    max-width: 100%; /* 최대 너비를 부모 요소에 맞게 조정 */
+    width: fit-content;
     margin: 0 auto; /* 자동 여백으로 중앙 정렬 */
+    overflow: hidden; /* 이미지가 컨테이너 밖으로 나가지 않게 설정 */
+    transition: transform 0.5s ease;
+    overflow-x: auto; /* 수평 스크롤 가능하게 설정 */
+    overflow: hidden; /* 스크롤바 숨기기 */
 }
 
 .shop-slider button:hover {
     background-color: #557b4c;
 }
 
-.item {
-    background-color: #ccc;
-    width: 100%;
-    padding-top: 100%;
-    position: relative;
-}
 
 .item-shopping {
-    flex: 0 0 auto; /* 플렉스 컨테이너에서 고정된 너비 사용 */
-    width: 200px; /* 각 이미지의 너비 */
+    flex: 0 0 auto; /* 고정된 너비 사용 */
+    width: 200px; /* 컨테이너 너비 */
+    height: 200px; /* 컨테이너 높이 */
     background-color: #ccc;
     position: relative;
+    overflow: hidden; /* 넘치는 콘텐츠 숨기기 */
+    border-radius: 10px; /* 컨테이너 모서리 둥글게 */
+    display: flex; /* 내부 요소 중앙 정렬 */
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px; /* 이미지 간 간격 추가 */
+
 }
 
-.item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.item-shopping img {
+    max-width: 100%; /* 컨테이너 너비를 넘지 않도록 설정 */
+    max-height: 100%; /* 컨테이너 높이를 넘지 않도록 설정 */
+    margin: auto; /* 이미지가 중앙에 위치하도록 설정 */
+    display: block; /* 이미지를 블록 요소로 설정 */
+    object-fit: contain; /* 이미지 비율 유지하며 컨테이너에 맞춤 */
+    border-radius: 10px; /* 이미지 모서리 둥글게 설정 */
+}
+
+
+.community_select {
+    background-color: #eaeaea;
+    border-radius: 5px;
+}
+
+#prev-btn, #next-btn {
+    z-index: 10;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#prev-btn:disabled, #next-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 footer {
@@ -167,18 +210,18 @@ footer {
     background-color: #f3f3f3;
     border-top: 1px solid #e0e0e0;
 }
-
 /* 큰 글씨 크기로 설정 */
 .logo-section h1 {
-    font-family: 'LeeSeoyun', sans-serif;
-    font-size: 2em; /* 서브 텍스트 크기 */
+    font-family: 'KCC-Ganpan',sans-serif;
+    font-weight: 20;
+    font-size: 1.8em; /* 서브 텍스트 크기 */
     color: #648853;
     margin: 10px 0;
 }
 
 .logo-section h2 {
-    font-family: 'BMJUA', sans-serif;
-    font-size: 5em; /* 제목을 더 크게 설정 */
+    font-family: 'HakgyoansimDunggeunmisoTTF-B', sans-serif;
+    font-size: 4em; /* 제목을 더 크게 설정 */
     color: #648853;
     margin: 0;
     line-height: 1.2; /* 간격 조절 */
@@ -186,9 +229,10 @@ footer {
 
 /* 섹션 제목을 크게 표시 */
 .section-title {
-    font-family: 'LeeSeoyun', sans-serif;
-    font-size: 3em; /* 커뮤니티 게시판 제목을 크게 설정 */
-    color: #020700;
+    font-family: 'KCC-Ganpan', sans-serif;
+    font-weight: 10;
+    font-size: 1.8em; /* 커뮤니티 게시판 제목을 크게 설정 */
+    color: #6b8057;
     text-align: center;
     margin-top: 10px; /* 상단 여백을 줄임 */
     margin-bottom: 10px;
@@ -457,13 +501,14 @@ footer {
 .ai-banner {
     position: relative;
     text-align: center;
-    color: white;
+    color: #ffffff;
     overflow: hidden;
 }
 .banner-img {
     width: 100%;
-    filter: brightness(0.7);
+    filter: brightness(0.2);
 }
+
 .banner-text {
     position: absolute;
     top: 50%;
@@ -482,7 +527,7 @@ footer {
     margin-bottom: 20px;
 }
 .coming-soon-btn {
-    background-color: #ff7e35;
+    background-color: #6b8057;
     border: none;
     padding: 10px 20px;
     font-size: 1em;
@@ -492,39 +537,109 @@ footer {
     transition: background-color 0.3s ease;
 }
 .coming-soon-btn:hover {
-    background-color: #e67330;
+    background-color: #4b5e39;
 }
 
-/* AI 설명 섹션 스타일 */
-.ai-description-section {
-    display: flex;
-    justify-content: center; /* 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    gap: 40px; /* 텍스트와 이미지 사이 간격 조정 */
-    padding: 30px 20px;
-    background-color: #f9f9f9;
+/* AI Intro Text 가운데 정렬 */
+.ai-intro-text {
+    text-align: center;
+    padding: 200px 20px; /* 여백 추가 */
 }
 
-.description-container {
-    max-width: 40%; /* 가운데로 정렬되었을 때 크기를 적절하게 조정 */
-    text-align: left; /* 텍스트 가운데 정렬 */
+.ai-intro-text h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
 }
 
-.description-container h1 {
-    font-size: 2.5em; /* 글씨 크기 조정 */
+.ai-intro-text p {
+    font-size: 1.5em;
     color: #333;
 }
 
-.description-container p {
-    font-size: 1.2em;
-    color: #666;
-    margin-top: 10px;
+.highlight {
+    color: #6b8057; /* 뜨개랑에 강조 색상 적용 */
+    font-weight: bold;
 }
 
-.ai-lens-image img {
-    max-width: 500px; /* 이미지 크기 확대 */
+/* 첫 번째 섹션 스타일 */
+.ai-description-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+.ai-description-section .description-container {
+    max-width: 400px;
+    text-align: left;
+}
+
+.ai-description-section h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ai-description-section p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.ai-description-section .ai-lens-image img {
+    width: 400px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 두 번째 섹션 스타일 */
+.ai-description-section-alt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+}
+
+.ai-description-section-alt .description-container {
+    max-width: 400px;
+    text-align: left;
+}
+
+.ai-description-section-alt h1 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.ai-description-section-alt p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.ai-description-section-alt .ai-lens-image img {
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 이미지 확대 효과 */
+.ai-description-section .ai-lens-image img,
+.ai-description-section-alt .ai-lens-image img {
+    transition: transform 0.3s ease;
+}
+
+.ai-description-section .ai-lens-image img:hover,
+.ai-description-section-alt .ai-lens-image img:hover {
+    transform: scale(1.05); /* 살짝 확대 */
+}
+
+.ai_select {
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
 
 /* shop.html 쇼핑 페이지 CSS */
@@ -730,7 +845,8 @@ footer {
 
 /* Navigation Bar에서 쇼핑 메뉴 강조 */
 .shop_select {
-    color: #afee6f;
+    background-color: #eaeaea;
+    border-radius: 5px;
 }
 
 /* 페이지네이션 컨테이너 */
