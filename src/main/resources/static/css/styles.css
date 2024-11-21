@@ -345,7 +345,7 @@ button[type="submit"]:hover {
     align-items: center;
     margin: 20px auto; /* 중앙 정렬 */
     gap: 5px;
-    max-width: 1200px; /* .wrapper와 동일한 너비 설정 */
+    max-width: 1200px; /* .wrapper 와 동일한 너비 설정 */
     padding-right: 20px; /* 필요에 따라 여백 조정 */
 }
 
@@ -642,6 +642,53 @@ footer {
     border-radius: 5px;
 }
 
+/* Shop 소개 배너 스타일 */
+.shop-banner {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+.shop-banner-img {
+    width: 100%;
+    filter: brightness(0.2);
+}
+
+.shop-banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 900px;
+}
+.shop-banner-text h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+.shop-banner-text p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* shop Intro Text 가운데 정렬 */
+.shop-intro-text {
+    text-align: center;
+    padding: 200px 20px; /* 여백 추가 */
+}
+
+.shop-intro-text h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
+}
+
+.shop-intro-text p {
+    font-size: 1.5em;
+    color: #333;
+}
+
 /* shop.html 쇼핑 페이지 CSS */
 .shop-container {
     text-align: center;
@@ -708,7 +755,7 @@ footer {
     flex-direction: column; /* 이미지와 텍스트를 세로로 배치 */
     align-items: center; /* 중앙 정렬 */
     justify-content: flex-start; /* 위쪽부터 배치 */
-    background-color: #fff; /* 배경색 */
+    background-color: #fff; /* 배경색 */;
     border-radius: 10px;
     overflow: hidden; /* 이미지가 텍스트 영역 밖으로 나가지 않도록 */
     aspect-ratio: auto; /* 정사각형 비율을 해제 */
@@ -776,6 +823,16 @@ footer {
     color: #6c946c;
 }
 
+.shop-navbar-text {/*(정식 서비스 시 제거)*/
+    text-align: center;
+    padding-bottom: 5px; /* 여백 추가 */
+}
+
+.shop-navbar-text p {/*(정식 서비스 시 제거)*/
+    font-size: 1.5em;
+    color: #000000;
+}
+
 .shop-filter-bar {
     display: flex;
     justify-content: space-between;
@@ -784,9 +841,9 @@ footer {
     max-width: 1250px; /* 최대 너비 제한 */
     margin: 30px auto 20px auto;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f9f9f9; /*(정식 서비스 시 제거)*/
+    border-radius: 5px; /*(정식 서비스 시 제거)*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
 }
 
 .shop-sort-options {
@@ -843,7 +900,27 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Navigation Bar에서 쇼핑 메뉴 강조 */
+.shop-filter-text {/*(정식 서비스 시 제거)*/
+    text-align: center;
+    padding-bottom: 5px; /* 여백 추가 */
+}
+
+.shop-filter-text p {/*(정식 서비스 시 제거)*/
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.shop-item-text {/*(정식 서비스 시 제거)*/
+    text-align: center;
+    padding-bottom: 5px; /* 여백 추가 */
+}
+
+.shop-item-text p {/*(정식 서비스 시 제거)*/
+    font-size: 1.5em;
+    color: #000000;
+}
+
+/* Navigation 에서 쇼핑 메뉴 강조 */
 .shop_select {
     background-color: #eaeaea;
     border-radius: 5px;
@@ -902,7 +979,97 @@ footer {
     border-color: #4e5c36;
 }
 
-/* design.html 연락처 페이지 CSS */
+
+/* Design 소개 배너 스타일 */
+.design-banner {
+    position: relative;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;
+}
+.design-banner-img {
+    width: 100%;
+    filter: brightness(0.2);
+}
+
+.design-banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 900px;
+}
+.design-banner-text h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+.design-banner-text p {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* shop Intro Text 가운데 정렬 */
+.design-intro-text {
+    text-align: center;
+    padding: 200px 20px; /* 여백 추가 */
+}
+
+.design-intro-text h2 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
+}
+
+.design-intro-text p {
+    font-size: 1.5em;
+    color: #333;
+}
+/* Main 컨테이너 */
+.design-main {/*(정식 서비스 시 제거)*/
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 왼쪽 여백 */
+.design-left-space {/*(정식 서비스 시 제거)*/
+    flex: 0.5; /* 여백 크기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+/* 오른쪽 여백 */
+.design-right-space {/*(정식 서비스 시 제거)*/
+    flex: 0.5; /* 여백 크기 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+/* 여백 텍스트 */
+.design-space-text {/*(정식 서비스 시 제거)*/
+    font-size: 1.2rem;
+    color: #000000;
+    text-align: center;
+}
+
+/* design.html CSS */
 .design-product-detail {
     display: flex;
     flex-direction: row;
@@ -912,7 +1079,7 @@ footer {
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     max-width: 900px;
-    margin: 20px auto;
+    margin: 20px auto 100px;
     font-family: Arial, sans-serif;
 }
 

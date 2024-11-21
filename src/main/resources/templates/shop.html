@@ -29,17 +29,34 @@
         <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
     </nav>
 
-    <!-- Content Section -->
+    <div class="shop-banner">
+        <img src="/images/shop-banner.png" alt="shop 서비스 준비 중" class="shop-banner-img">
+        <div class="shop-banner-text">
+            <h1>뜨개랑 Shop 서비스, 곧 출시됩니다!</h1>
+            <p>뜨개질을 더욱 쉽고 재미있게! <br>다양한 뜨개질 상품과 새로운 경험을 만들어 보세요!</p>
+            <button class="coming-soon-btn" onclick="location.href='/community'">커뮤니티에 기대평 남기기!</button>
+        </div>
+    </div>
 
+    <section class="shop-intro-text">
+        <h2>원하는 뜨개 상품을 찾느라 헤매고 계신가요?</h2>
+        <p>이제 <span class="highlight">뜨개랑</span>에서 구매하세요</p>
+    </section>
+
+    <!-- Content Section -->
     <main>
         <div class="shop-navbar">
             <ul class="shop-nav-menu">
-                <li><a href="#yarn">실과 바늘</a></li>
-                <li><a href="#kits">뜨개질 키트</a></li>
-                <li><a href="#books">패턴 책자</a></li>
-                <li><a href="#accessories">뜨개질 악세서리</a></li>
+                <li>실과 바늘</li>
+                <li>뜨개질 키트</li>
+                <li>패턴 책자</li>
+                <li>뜨개질 악세서리</li>
             </ul>
         </div>
+
+        <section class="shop-navbar-text"><!--정식서비스 시 제거-->
+            <p>필요한 <span class="highlight">카테고리</span>를 선택하세요</p>
+        </section>
 
         <!-- 정렬 및 검색 바 -->
         <div class="shop-filter-bar">
@@ -61,10 +78,14 @@
                 <label>
                     <input type="radio" name="shop-search-type" value="content"> 내용
                 </label>
-                <input type="text" placeholder="검색어를 입력하세요..." class="shop-search-input">
+                <input type="text" placeholder="검색어를 입력하세요" class="shop-search-input">
                 <button class="shop-search-button">검색</button>
             </div>
         </div>
+
+        <section class="shop-filter-text"><!--정식서비스 시 제거-->
+            <p><span class="highlight">정렬 및 검색</span>을 할 수 있습니다</p>
+        </section>
 
         <div class="shop-gallery">
             <div class="shop-row">
@@ -82,6 +103,11 @@
                 <div class="shop-item"><img src="/images/가방.jpg" alt="책2"><p class="shop-item-name">[패키지] 가방 뜨개질 세트</p></div>
             </div>
         </div>
+
+        <section class="shop-item-text"><!--정식서비스 시 제거-->
+            <p>당신이 <span class="highlight">원하는 물품</span>을 찾을 수 있습니다</p>
+        </section>
+
         <div class="shop-pagination">
             <ul>
                 <li class="disabled"><a href="#">이전</a></li> <!-- 이전 버튼 (비활성화) -->
@@ -90,7 +116,6 @@
             </ul>
         </div>
     </main>
-
 
     <!-- Footer -->
     <footer>
