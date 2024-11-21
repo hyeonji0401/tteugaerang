@@ -10,7 +10,7 @@
 
     <!-- Login Form -->
     <div class="login-container">
-        <img src="/images/logo.png" style="height: 50%; width:50%;">
+        <img src="/images/logo.png" onclick="location.href='/'" style="height: 50%; width:50%;">
         <h2>로그인</h2>
         <form id="login-form" method="POST" th:action="@{/login}">
             <div th:if="${param.error}">
