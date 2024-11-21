@@ -203,7 +203,7 @@ button:hover {
 
 #prev-btn, #next-btn {
     z-index: 10;
-    background-color: #333;
+    background-color: #6b8057;
     color: white;
     padding: 10px;
     cursor: pointer;
