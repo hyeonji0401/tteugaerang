@@ -1,0 +1,228 @@
+@font-face {
+    font-family: 'HakgyoansimDunggeunmisoTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KCC-Ganpan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    font-family: 'Pretendard-Regular';
+}
+
+button{
+    font-family: 'Pretendard-Regular';
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #4e5c36;
+}
+
+.back-button{
+    width: 95%;
+    font-family: 'Pretendard-Regular';
+    font-size:16px;
+    padding: 10px 15px;
+    margin-left: 50px;
+    border: none;
+    background-color: #6b8057;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.back-button:hover{
+    background-color: #4e5c36;
+}
+
+.post-title,.post-content {
+    font-family: 'KCC-Ganpan';
+    font-size: 23px;
+    font-weight: 20;
+    color: #6b8057;
+    margin-bottom: 10px;
+}
+
+.comment-author{
+    font-family: pretendard-Regular;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.post-btn{
+    display: flex;
+    justify-content: right;
+    padding-right: 20px;
+    gap: 10px;
+}
+
+/*글 작성*/
+
+.write-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 각 입력 요소 간의 간격 */
+    padding: 0 50px; /* 양쪽 패딩 */
+    margin-top: 30px;
+}
+
+
+.input-field,.textarea-field {
+    gap:20px;
+    align-content: center;
+    justify-content: center;
+    width: 98.5%; /* 전체 너비 */
+    padding: 10px; /* 내부 여백 */
+    font-size: 16px; /* 폰트 크기 */
+    border: 1px solid #ccc; /* 테두리 색상 */
+    border-radius: 15px; /* 둥근 모서리 */
+    transition: border-color 0.3s; /* 테두리 색 변경 애니메이션 */
+
+
+}
+
+
+.input-field:focus,.textarea-field:focus {
+    border-color: #648853; /* 포커스 시 테두리 색상 */
+    outline: none; /* 포커스 시 기본 outline 제거 */
+}
+
+.textarea-field {
+    resize: none; /* 텍스트 상자 크기 조절 비활성화 */
+}
+
+/* 제출 버튼 스타일 */
+.submit-write-btn {
+    padding: 10px 20px;
+    background-color: #648853;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-write-btn:hover {
+    background-color: #4e5c36;
+}
+
+/*상세보기*/
+
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-btn {
+    padding: 10px 20px;
+    background-color: #648853;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form .action-btn:hover {
+    background-color: #4e5c36;
+}
+
+form .delete-btn {
+    background-color: #a94442;
+}
+
+form .delete-btn:hover {
+    background-color: #922b21;
+}
+
+.comment-section {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.comment-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.comment-author {
+    font-size:16px;
+    color: #4e5c36;
+    font-weight: bold;
+}
+
+.comment-date {
+    font-size: 0.9em;
+    color: #888;
+    font-weight: bold;
+}
+
+.comment-content {
+    font-size:16px;
+    margin-top: 5px;
+}
+
+.comment-title{
+    font-size:16px;
+    color: #4e5c36;
+    font-weight: bold;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+}
+
+.comment-form textarea{
+    width: 82%;
+}
+.comment-form button{
+    width: 8%;
+}
+
+.submit-comment-btn {
+
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #648853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-comment-btn:hover {
+    background-color: #4e5c36;
+}
+
+.padding{
+    padding: 30px;
+}
+
