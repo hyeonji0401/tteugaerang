@@ -41,17 +41,40 @@ button:hover{
     color: white;
     cursor: pointer;
     border-radius: 5px;
+    text-decoration-line: none;
 }
 .back-button:hover{
     background-color: #4e5c36;
 }
 
-.post-title,.post-content {
+.post-title{
     font-family: 'KCC-Ganpan';
     font-size: 23px;
     font-weight: 20;
     color: #6b8057;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+.content-wrapper {
+    display: flex;
+    align-items: center; /* 라벨과 텍스트 영역의 세로 정렬 */
+    gap: 10px; /* 라벨과 텍스트 영역 간의 간격 */
+}
+
+.input-field {
+    flex: 1; /* 텍스트 영역의 크기를 조정 */
+    font-family: pretendard-Regular;
+}
+
+.textarea-field {
+    overflow: hidden;
+    font-family: pretendard-Regular;
+    padding: 0; /* 내부 여백 제거 */
+    line-height: 1.5; /* 텍스트 줄 간격 설정 */
+    vertical-align: top; /* 수직 정렬 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    resize: none; /* 사용자가 크기를 조정하지 못하게 설정 */
+    width: 100%; /* 텍스트 영역 가로 크기 */
+    box-sizing: border-box; /* 여백을 포함한 크기 계산 */
 }
 
 .comment-author{
@@ -96,10 +119,6 @@ button:hover{
 .input-field:focus,.textarea-field:focus {
     border-color: #648853; /* 포커스 시 테두리 색상 */
     outline: none; /* 포커스 시 기본 outline 제거 */
-}
-
-.textarea-field {
-    resize: none; /* 텍스트 상자 크기 조절 비활성화 */
 }
 
 /* 제출 버튼 스타일 */
@@ -184,12 +203,12 @@ form .delete-btn:hover {
 }
 
 .comment-content {
-    font-size:16px;
+    font-size:0.9rem;
     margin-top: 5px;
 }
 
 .comment-title{
-    font-size:16px;
+    font-size:1.2rem;
     color: #4e5c36;
     font-weight: bold;
 }
@@ -200,16 +219,14 @@ form .delete-btn:hover {
 }
 
 .comment-form textarea{
-    width: 82%;
+    width: 92%;
 }
 .comment-form button{
     width: 8%;
 }
 
 .submit-comment-btn {
-
-    padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1.2rem;
     background-color: #648853;
     color: white;
     border: none;

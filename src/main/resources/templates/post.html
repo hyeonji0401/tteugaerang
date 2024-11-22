@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 상세 - 뜨개랑 커뮤니티</title>
     <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="../static/css/post.css">
+    <link rel="stylesheet" href="/css/post.css">
 
 </head>
 <body>
@@ -28,18 +28,18 @@
             <a th:href="@{/community?page={page}&kw={kw}(page=${page}, kw=${kw})}" class="back-button">뒤로 가기</a>
 
             <div class="write-form">
-                <span th:text="|작성자: ${community.getWriter().getMemberName()}|"></span><br>
+                <span th:text="|작성자: ${community.getWriter().getMemberName()}|"></span>
                 <span>
                     <span th:text="'작성날짜: '+${community.getUpdateTime() != null ? #temporals.format(community.getUpdateTime(), 'yyyy-MM-dd HH:mm') + ' (수정됨)' : #temporals.format(community.getWriteTime(), 'yyyy-MM-dd HH:mm')}"></span>
-                </span><br>
+                </span>
                 <!-- 게시글 제목 -->
-                <label for="title" class="post-title">제목:</label>
+                <div class="content-wrapper">
+                <label for="title" class="post-title">제목</label>
                 <input type="text" id="title" name="title" th:value="${community.title}" readonly class="input-field">
-                
-                <!-- 게시글 내용 -->
-                <label for="content" class="post-content">내용:</label>
-                <textarea id="content" name="content" rows="10" readonly class="textarea-field" th:text="${community.content}"></textarea>
+                </div>
 
+                <!-- 게시글 내용 -->
+                <textarea id="content" name="content" readonly class="textarea-field" th:text="${community.content}" oninput="adjustTextareaHeight(this)"></textarea>
 
             <!-- 버튼 섹션 -->
 
@@ -107,8 +107,7 @@
 
                 <!-- 댓글 작성 폼 -->
                 <form th:action="@{|/community/comment/${community.getId()}|}" method="POST" class="comment-form" sec:authorize="isAuthenticated()" >
-                    <label for="comment-content" class="comment-title">댓글 내용:</label>
-                    <textarea id="comment-content" name="content" rows="3" required class="textarea-field"></textarea>
+                    <textarea id="comment-content" name="content" required class="textarea-field"></textarea>
                     <button type="submit" class="submit-comment-btn">댓글 작성</button>
                 </form>
             </div>
@@ -121,4 +120,20 @@
         </footer>
     </div>
 </body>
+<script>
+    function adjustTextareaHeight(textarea) {
+        // 초기 높이 설정 (스크롤 높이를 재계산하기 위해 필요)
+        textarea.style.height = 'auto';
+        // 텍스트 내용을 기반으로 높이 조정
+        textarea.style.height = `${textarea.scrollHeight}px`;
+    }
+
+    // 페이지 로드 후 높이 자동 조정
+    document.addEventListener('DOMContentLoaded', () => {
+        const textarea = document.getElementById('content');
+        if (textarea) {
+            adjustTextareaHeight(textarea);
+        }
+    });
+</script>
 </html>
