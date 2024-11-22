@@ -25,7 +25,7 @@
         <form th:object="${commentFormDTO}" method="post">
             <div th:replace="~{form_errors :: formErrorsFragment}"></div>
             <div class="mb-3">
-                <label>내용</label>
+                <label >내용</label>
                 <textarea th:field="*{content}" rows="10"></textarea>
             </div>
             <input type="submit" value="저장하기">
