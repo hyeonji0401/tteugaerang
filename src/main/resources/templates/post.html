@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시글 상세 - 뜨개랑 커뮤니티</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../static/css/post.css">
+
 </head>
 <body>
     <div class="wrapper">
         <nav>
-            <a href="/community">Community</a>
+            <a href="/community" class="community_select">Community</a>
             <a href="/ai">AI</a>
             <a href="/shop">Shop</a>
             <a href="/design">Design</a>
@@ -24,19 +26,20 @@
         <main>
             <h2 class="section-title">글 상세 보기</h2>
             <a th:href="@{/community?page={page}&kw={kw}(page=${page}, kw=${kw})}" class="back-button">뒤로 가기</a>
-            <div class="post-detail content-padding"> <!-- 패딩 클래스 추가 -->
+
+            <div class="write-form">
                 <span th:text="|작성자: ${community.getWriter().getMemberName()}|"></span><br>
                 <span>
                     <span th:text="'작성날짜: '+${community.getUpdateTime() != null ? #temporals.format(community.getUpdateTime(), 'yyyy-MM-dd HH:mm') + ' (수정됨)' : #temporals.format(community.getWriteTime(), 'yyyy-MM-dd HH:mm')}"></span>
                 </span><br>
                 <!-- 게시글 제목 -->
-                <label for="title">제목:</label>
+                <label for="title" class="post-title">제목:</label>
                 <input type="text" id="title" name="title" th:value="${community.title}" readonly class="input-field">
                 
                 <!-- 게시글 내용 -->
-                <label for="content">내용:</label>
+                <label for="content" class="post-content">내용:</label>
                 <textarea id="content" name="content" rows="10" readonly class="textarea-field" th:text="${community.content}"></textarea>
-            </div>
+
 
             <!-- 버튼 섹션 -->
 
@@ -75,6 +78,7 @@
                         <p class="comment-author"><span th:text="${comment.getWriter().getMemberName()}">작성자명</span> | <span class="comment-date" th:text="${comment.getUpdateTime() != null ? #temporals.format(comment.getUpdateTime(), 'yyyy-MM-dd HH:mm') + ' (수정됨)' : #temporals.format(comment.getWriteTime(), 'yyyy-MM-dd HH:mm')}"></span></p>
                         <p class="comment-content" th:text="${comment.getContent()}">댓글 내용</p>
                         <!--수정 버튼-->
+                        <div class="post-btn">
                         <form th:action="@{|/comment/modify/${comment.getId()}|}" method="get">
                             <button type="submit" class="action-btn"
                                     sec:authorize="isAuthenticated()"
@@ -86,6 +90,7 @@
                             </button>
                         </form>
                         <!--삭제 버튼-->
+
                         <form th:action="@{|/comment/delete/${comment.getId()}|}" method="post"
                               onsubmit="return confirm('정말 삭제하시겠습니까?');">
                             <button type="submit" class="delete-btn"
@@ -96,18 +101,20 @@
                       and #authentication.getPrincipal().getUsername() == comment.getWriter().getEmail()}">
                                 삭제
                             </button>
-                        </form>
+                        </form></div>
                     </li>
                 </ul>
 
                 <!-- 댓글 작성 폼 -->
                 <form th:action="@{|/community/comment/${community.getId()}|}" method="POST" class="comment-form" sec:authorize="isAuthenticated()" >
-                    <label for="comment-content">댓글 내용:</label>
+                    <label for="comment-content" class="comment-title">댓글 내용:</label>
                     <textarea id="comment-content" name="content" rows="3" required class="textarea-field"></textarea>
                     <button type="submit" class="submit-comment-btn">댓글 작성</button>
                 </form>
             </div>
+            </div>
 
+            <div class="padding"></div>
         </main>
         <footer>
             <p>© 2024 뜨개랑. All rights reserved.</p>
