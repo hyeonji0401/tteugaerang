@@ -922,7 +922,8 @@ footer {
 
 .shop-item-text {/*(정식 서비스 시 제거)*/
     text-align: center;
-    padding-bottom: 5px; /* 여백 추가 */
+    font-size: 2rem;
+    padding-bottom: 10px; /* 여백 추가 */
 }
 
 .shop-item-text p {/*(정식 서비스 시 제거)*/
@@ -1039,9 +1040,10 @@ footer {
 /* Main 컨테이너 */
 .design-main {/*(정식 서비스 시 제거)*/
     display: flex;
-    flex-direction: row;
     gap: 20px;
-    justify-content: space-between;
+    flex-wrap: wrap; /* 화면이 좁아지면 줄 바꿈 */
+    justify-content: center; /* 콘텐츠를 가운데 정렬 */
+    align-items: center; /* 위쪽에 정렬 */
     max-width: 1500px;
     margin: 0 auto;
     padding: 20px;
@@ -1182,6 +1184,13 @@ footer {
     border-radius: 5px;
     font-size: 0.9rem;
     color: #333;
+}
+
+.design-text {/*(정식 서비스 시 제거)*/
+    text-align: center;
+    font-size: 1.5em;
+    color: #000000;
+    padding-bottom: 50px; /* 여백 추가 */
 }
 
 /* 글 작성 화면 css */
