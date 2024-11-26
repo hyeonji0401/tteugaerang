@@ -249,6 +249,13 @@ button:hover {
     }
 }
 
+/* 모바일 화면에서 로고 숨기기 */
+@media (max-width: 768px) {
+    .logo-img {
+        display: none; /* 로고 숨기기 */
+    }
+}
+
 /* 반응형 스타일 네이게이션 바 */
 @media (max-width: 768px) {
     nav {
