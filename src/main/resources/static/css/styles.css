@@ -249,6 +249,26 @@ button:hover {
     }
 }
 
+/* 모바일 화면에서 로고 숨기기 */
+@media (max-width: 768px) {
+    .logo-img {
+        display: none; /* 로고 숨기기 */
+    }
+}
+
+/* 반응형 스타일 네이게이션 바 */
+@media (max-width: 768px) {
+    nav {
+        flex-wrap: nowrap; /* 줄 바꿈 금지 */
+        overflow-x: auto; /* 가로 스크롤 허용 */
+        white-space: nowrap; /* 텍스트 줄 바꿈 방지 */
+    }
+
+    nav a {
+        font-size: 0.9em; /* 글자 크기 축소 */
+        padding: 5px; /* 내부 여백 축소 */
+    }
+}
 
 .community_select {
     background-color: #eaeaea;
@@ -803,6 +823,18 @@ footer {
         font-size: 0.9em;
     }
 }
+
+/* <p> 테그 글 자연스럽게 처리 */
+@media (max-width: 768px) {
+    .ai-introduce {
+        line-height: 1.6;
+        word-wrap: break-word;
+        text-align: left;
+        font-size: 1em;
+        padding: 0 10px;
+    }
+}
+
 
 /* Shop 소개 배너 스타일 */
 .shop-banner {
@@ -1598,4 +1630,4 @@ footer {
 
 .submit-write-btn:hover {
     background-color: #4e5c36;
-}
+
