@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>댓글 수정 - 뜨개랑 커뮤니티</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/post.css">
 </head>
 <body>
 <div class="wrapper">
@@ -22,15 +23,16 @@
 
     <main>
         <h2 class="section-title">댓글 수정</h2>
-        <form th:object="${commentFormDTO}" method="post">
+        <form class="write-form" th:object="${commentFormDTO}" method="post">
             <div th:replace="~{form_errors :: formErrorsFragment}"></div>
             <div class="mb-3">
-                <label class="post-content">내용:</label>
+                <label class="post-content"></label>
                 <textarea class="textarea-field" th:field="*{content}" rows="10"></textarea>
             </div>
             <input type="submit" class="submit-write-btn" value="저장하기">
         </form>
     </main>
+    <div class="padding"></div>
     <footer>
         <p>© 2024 뜨개랑. All rights reserved.</p>
     </footer>
