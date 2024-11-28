@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design - 뜨개랑</title>
+    <link rel="stylesheet" href="/css/styles.css">
+<!--    <script src="/js/scripts.js" defer></script> &lt;!&ndash; scripts.js 파일 연결 &ndash;&gt;-->
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-section">
+            <h1>뜨개질 트렌드의 시작점</h1>
+            <a href="/" class="no-underline"><h2>뜨개랑</h2></a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/community">Community</a>
+        <a href="/ai">AI</a>
+        <a href="/shop">Shop</a>
+        <a href="/design" class="design_select">Design</a>
+        <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+        <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+        <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+        <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+    </nav>
+
+    <div class="design-banner">
+        <img src="/images/design-banner.png" alt="design 서비스 준비 중" class="design-banner-img">
+        <div class="design-banner-text">
+            <h1>뜨개랑 도안 상점, 곧 출시됩니다!</h1>
+            <p>도안의 상세 설명, 난이도, 구성품 정보까지 모두 담아 제공합니다<br>내가 원하는 작품을 완성해보세요!</p>
+            <button class="coming-soon-btn" onclick="location.href='/community'">커뮤니티에 기대평 남기기!</button>
+        </div>
+    </div>
+
+    <section class="design-intro-text">
+        <h2>독창적이고 다양한 뜨개 도안</h2>
+        <p>이제 <span class="highlight">뜨개랑</span>에서 만나보세요</p>
+    </section>
+
+    <!-- Design Section -->
+    <main class="design-main">
+        <!-- 왼쪽 여백 -->
+        <div class="design-left-space">
+            <p class="design-space-text">이미지를 통해<br><span class="highlight">상품의 디테일을 확인하세요</span></p>
+        </div>
+        <div class="design-product-detail">
+            <div class="design-product-image">
+                <img src="/images/designBag.png" alt="가방">
+            </div>
+            <div class="design-product-info">
+                <h1 class="design-product-title">[도안] 가방 뜨개질 도안</h1>
+                <span class="design-level-badge">난이도 4</span>
+                <div class="design-product-price">₩15,000</div>
+                <p class="design-product-description">따뜻한 감성과 실용성을 담은 핸드메이드 니트백으로 나만의 스타일을 완성하세요!</p>
+                <button class="design-product-button">다운받기</button>
+                <div class="design-product-details">
+                    <p>가방 뜨개질 도안</p>
+                    <p>준비물(미포함) : 파스텔 블루 (3볼), 코바늘, 돗바늘, 가죽 스트랩 (2개), 라벨</p>
+                </div>
+            </div>
+        </div>
+        <!-- 오른쪽 여백 -->
+        <div class="design-right-space">
+            <p class="design-space-text">각 항목을 통해 상품의<br><span class="highlight">정보를 자세히 확인해보세요</span></p>
+        </div>
+    </main>
+
+
+    <section class="ai-description-section-alt">
+        <div class="description-container">
+            <h1>자신만의 도안을 업로드하여<br>뜨개랑에서 판매해보세요!</h1>
+            <p>나만의 도안을 다양한 사람들과 공유해보세요.<br>판매를 통한 수익화도 가능합니다.</p>
+        </div>
+        <div class="ai-lens-image">
+            <img src="/images/designImg.png" alt="도안 이미지" />
+        </div>
+    </section>
+
+    <section class="shop-item-text"><!--정식서비스 시 제거-->
+        <p> <span class="highlight">Coming Soon!</span></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 뜨개랑. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

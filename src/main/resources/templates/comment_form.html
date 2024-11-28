@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글 수정 - 뜨개랑 커뮤니티</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/post.css">
+</head>
+<body>
+<div class="wrapper">
+    <nav>
+        <a href="/community">Community</a>
+        <a href="/ai">AI</a>
+        <a href="/shop">Shop</a>
+        <a href="/design">Design</a>
+        <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+        <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+        <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+        <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+    </nav>
+    <hr class="thin-line">
+
+    <main>
+        <h2 class="section-title">댓글 수정</h2>
+        <form class="write-form" th:object="${commentFormDTO}" method="post">
+            <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+            <div class="mb-3">
+                <label class="post-content"></label>
+                <textarea class="textarea-field" th:field="*{content}" rows="10"></textarea>
+            </div>
+            <input type="submit" class="submit-write-btn" value="저장하기">
+        </form>
+    </main>
+    <div class="padding"></div>
+    <footer>
+        <p>© 2024 뜨개랑. All rights reserved.</p>
+    </footer>
+</div>
+</body>
+</html>

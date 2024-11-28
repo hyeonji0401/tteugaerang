@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글 작성 - 뜨개랑 커뮤니티</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/post.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav>
+            <a href="/community">Community</a>
+            <a href="/ai">AI</a>
+            <a href="/shop">Shop</a>
+            <a href="/design">Design</a>
+            <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+            <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+            <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+            <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+        </nav>
+        <hr class="thin-line">
+
+        <main>
+            <h2 class="section-title">글 작성하기</h2>
+            <form class="write-form"  th:object="${communityFormDTO}" method="POST">
+                <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+                <label for="title" class="post-title">제목: </label>
+                <input type="text" id="title" name="title" th:field="*{title}" required class="input-field">
+                
+                <label for="content" class="post-content">내용: </label>
+                <textarea id="content"  name="content" th:field="*{content}" rows="10" required class="textarea-field"></textarea>
+                
+                <button type="submit" class="submit-write-btn">작성 완료</button>
+            </form>
+        </main>
+
+        <div class="padding"></div>
+
+        <footer>
+            <p>© 2024 뜨개랑. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

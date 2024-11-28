@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뜨개랑</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="/css/post.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img class="logo-img"  onclick="location.href='/'" src="/images/logo.png">
+        <div class="logo-section">
+            <h1>뜨개질 트렌드의 시작점</h1>
+            <a href="/" class="no-underline"><h2>뜨개랑</h2></a>
+        </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/community">Community</a>
+        <a href="/ai">AI</a>
+        <a href="/shop">Shop</a>
+        <a href="/design">Design</a>
+        <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+        <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+        <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+        <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+    </nav>
+
+    <!-- 주간 인기 게시글 섹션 -->
+    <h2 class="section-title">#Weekly</h2>
+    <div class="container">
+        <div class="item">
+            <img src="/images/weekly1.png" alt="주간 인기 1">
+        </div>
+        <div class="item">
+            <img src="/images/weekly2.png" alt="주간 인기 2">
+        </div>
+        <div class="item">
+            <img src="/images/weekly3.png" alt="주간 인기 3">
+        </div>
+        <div class="item">
+            <img src="/images/weekly4.png" alt="주간 인기 4">
+        </div>
+    </div>
+
+    <!-- 현재 인기 게시글 섹션 -->
+    <h2 class="section-title">#Best</h2>
+    <div class="container">
+        <div class="item">
+            <img src="/images/best1.png" alt="인기 1">
+        </div>
+        <div class="item">
+            <img src="/images/best2.png" alt="인기 2">
+        </div>
+        <div class="item">
+            <img src="/images/best3.png" alt="인기 3">
+        </div>
+        <div class="item">
+            <img src="/images/best4.png" alt="인기 4">
+        </div>
+    </div>
+
+    <!-- 쇼핑 섹션 -->
+    <h2 class="section-title-shopping">#Shop</h2>
+    <div class="shop-slider">
+        <button id="prev-btn">◀</button>
+        <div class="container-shopping">
+            <div class="item-shopping">
+                <img src="/images/shop1.jpg" alt="쇼핑 1">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop2.jpg" alt="쇼핑 2">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop3.jpg" alt="쇼핑 3">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop4.jpg" alt="쇼핑 4">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop5.jpg" alt="쇼핑 5">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop6.jpg" alt="쇼핑 6">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop7.jpg" alt="쇼핑 7">
+            </div>
+            <div class="item-shopping">
+                <img src="/images/shop8.jpg" alt="쇼핑 8">
+            </div>
+        </div>
+        <button id="next-btn">▶</button>
+    </div>
+
+    <div class="padding"></div>
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 뜨개랑. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+    const container = document.querySelector('.container-shopping');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const itemWidth = document.querySelector('.item-shopping').offsetWidth + 15; // 각 아이템 너비 + 간격
+    const totalItems = document.querySelectorAll('.item-shopping').length; // 전체 아이템 개수
+
+    // 현재 스크롤 위치 추적
+    let currentIndex = 0;
+
+    // 드래그 관련 변수
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    // 마우스 버튼을 눌렀을 때
+    container.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - container.offsetLeft; // 시작 X 좌표
+        scrollLeft = container.scrollLeft; // 현재 스크롤 위치
+    });
+
+    // 마우스를 움직였을 때
+    container.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault(); // 기본 동작 방지
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 2; // 이동 속도 조정
+        container.scrollLeft = scrollLeft - walk; // 스크롤 이동
+    });
+
+    // 마우스를 떼었을 때
+    container.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    // 마우스가 컨테이너 밖으로 나갔을 때
+    container.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
+
+    // 이전 버튼 클릭 시 스크롤 이동
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex === 0) {
+            container.scrollTo({
+                left: (totalItems - 1) * itemWidth,
+                behavior: 'smooth'
+            });
+            currentIndex = totalItems - 1;
+        } else {
+            container.scrollBy({
+                left: -itemWidth, // 왼쪽으로 이동
+                behavior: 'smooth' // 부드럽게 이동
+            });
+            currentIndex--;
+        }
+    });
+
+    // 다음 버튼 클릭 시 스크롤 이동
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex === totalItems - 1) {
+            container.scrollTo({
+                left: 0,
+                behavior: 'smooth'
+            });
+            currentIndex = 0;
+        } else {
+            container.scrollBy({
+                left: itemWidth, // 오른쪽으로 이동
+                behavior: 'smooth' // 부드럽게 이동
+            });
+            currentIndex++;
+        }
+    });
+
+
+</script>
+</html>

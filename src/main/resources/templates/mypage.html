@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-section">
+            <h1>뜨개질 트렌드의 시작점</h1>
+            <a href="/" class="no-underline"><h2>뜨개랑</h2></a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/community">Community</a>
+        <a href="/ai">AI</a>
+        <a href="/shop">Shop</a>
+        <a href="/design">Design</a>
+        <button id="logout-btn" onclick="location.href='/logout'" >로그아웃</button>
+    </nav>
+
+    <!-- 마이페이지 콘텐츠 -->
+    <div class="mypage-container">
+        <h2>사용자 정보</h2>
+        <p>사용자 이름: <span id="user-name" th:text="${member.memberName}"></span></p>
+        <p>이메일: <span id="user-email" th:text="${member.email}"></span></p> <!-- 이메일 표시 -->
+        <!-- 더 많은 사용자 정보를 표시할 수 있음 -->
+        <button id="edit-info-btn">회원정보 수정</button> <!-- 회원정보 수정 버튼 -->
+    </div>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 뜨개랑. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>

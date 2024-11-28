@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - 뜨개랑</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/scripts.js" defer></script> <!-- scripts.js 파일 연결 -->
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-section">
+            <h1>뜨개질 트렌드의 시작점</h1>
+            <a href="/" class="no-underline"><h2>뜨개랑</h2></a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="/community">Community</a>
+        <a href="/ai">AI</a>
+        <a href="/shop" class="shop_select">Shop</a>
+        <a href="/design">Design</a>
+        <button id="login-btn" onclick="location.href='/login'" sec:authorize="isAnonymous()">로그인</button>
+        <button id="logout-btn" onclick="location.href='/logout'" sec:authorize="isAuthenticated()">로그아웃</button>
+        <button id="signup-btn" onclick="location.href='/signup'" sec:authorize="isAnonymous()">회원가입</button>
+        <button id="mypage-btn" onclick="location.href='/mypage'" sec:authorize="isAuthenticated()">마이페이지</button>
+    </nav>
+
+    <div class="shop-banner">
+        <img src="/images/shop-banner.png" alt="shop 서비스 준비 중" class="shop-banner-img">
+        <div class="shop-banner-text">
+            <h1>뜨개랑 Shop 서비스, 곧 출시됩니다!</h1>
+            <p>뜨개질을 더욱 쉽고 재미있게! <br>다양한 뜨개질 상품과 새로운 경험을 만들어 보세요!</p>
+            <button class="coming-soon-btn" onclick="location.href='/community'">커뮤니티에 기대평 남기기!</button>
+        </div>
+    </div>
+
+    <section class="shop-intro-text">
+        <h2>다양한 뜨개 상품을 한 곳에 모아서!</h2>
+        <p>이제 <span class="highlight">뜨개랑</span>에서 한 눈에 비교하고 구매하세요</p>
+    </section>
+
+
+
+    <section class="shop-filter-text"><!--정식서비스 시 제거-->
+        <p><span class="highlight">정렬, 검색을 통해 </span>쉽고 빠르게 원하는 뜨개 용품을 검색해보세요!</p>
+    </section>
+    <!-- Content Section -->
+    <main>
+        <!-- 정렬 및 검색 바 -->
+        <div class="shop-filter-bar">
+            <div class="shop-sort-options">
+                <label for="shop-sort-select">정렬 기준:</label>
+                <select id="shop-sort-select" class="shop-sort-select">
+                    <option value="popularity">인기순</option>
+                    <option value="latest">최신순</option>
+                    <option value="recommended">추천순</option>
+                </select>
+            </div>
+            <div class="shop-search-options">
+                <label>
+                    <input type="radio" name="shop-search-type" value="name"> 이름
+                </label>
+                <label>
+                    <input type="radio" name="shop-search-type" value="title" checked> 제목
+                </label>
+                <label>
+                    <input type="radio" name="shop-search-type" value="content"> 내용
+                </label>
+                <input type="text" placeholder="검색어를 입력하세요" class="shop-search-input">
+                <button class="shop-search-button">검색</button>
+            </div>
+        </div>
+
+
+        <div class="shop-gallery">
+            <div class="shop-row">
+                <div class="shop-item"><img src="/images/shop1.jpg" alt="실"><p class="shop-item-name">[실] 코튼 실(knitting for Olive)</p></div>
+                <div class="shop-item"><img src="/images/shop2.jpg" alt="라벨"><p class="shop-item-name">[기타] 라벨(bind off.)</p></div>
+                <div class="shop-item"><img src="/images/shop3.jpg" alt="단추"><p class="shop-item-name">[기타] 단추</p></div>
+                <div class="shop-item"><img src="/images/shop4.jpg" alt="실"><p class="shop-item-name">[실] 코튼 실</p></div>
+                <div class="shop-item"><img src="/images/shop5.jpg" alt="대바늘"><p class="shop-item-name">[바늘] 대바늘</p></div>
+                <div class="shop-item"><img src="/images/shop6.jpg" alt="코바늘"><p class="shop-item-name">[바늘] 코바늘</p></div>
+                <div class="shop-item"><img src="/images/shop7.jpg" alt="바늘 보관 가방"><p class="shop-item-name">[기타] 바늘 보관 가방(중)</p></div>
+                <div class="shop-item"><img src="/images/shop8.jpg" alt="실"><p class="shop-item-name">[실] 코튼 실(Lalla)</p></div>
+                <div class="shop-item"><img src="/images/shop9.jpg" alt="실"><p class="shop-item-name">[실] 코튼 실(Posie)</p></div>
+                <div class="shop-item"><img src="/images/shop10.jpg" alt="실"><p class="shop-item-name">[실] 코튼 실(TASOCO)</p></div>
+                <div class="shop-item"><img src="/images/shop11.jpg" alt="실"><p class="shop-item-name">[실] 코튼 실(ASCALLS MADE)</p></div>
+                <div class="shop-item"><img src="/images/shop12.jpg" alt="초보 뜨개 키트"><p class="shop-item-name">[기타] 초보 뜨개 키트 </p></div>
+            </div>
+        </div>
+
+        <section class="shop-item-text"><!--정식서비스 시 제거-->
+            <p> <span class="highlight">Coming Soon!</span></p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 뜨개랑. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
