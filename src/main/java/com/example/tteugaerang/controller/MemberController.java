@@ -18,13 +18,13 @@ public class MemberController {
 
     @GetMapping("/signup")
     public String signup(MemberDTO memberDTO){
-        return "/signup";
+        return "signup";
     }
 
     @PostMapping("/signup")
     public String signup(@Valid MemberDTO memberDTO, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
-            return "/signup";
+            return "signup";
         }
 
         try {
@@ -32,17 +32,17 @@ public class MemberController {
         }catch(DataIntegrityViolationException e) {
             e.printStackTrace();
             bindingResult.reject("signupFailed", "이미 등록된 사용자입니다.");
-            return "/signup";
+            return "signup";
         }catch(Exception e) {
             e.printStackTrace();
             bindingResult.reject("signupFailed", e.getMessage());
-            return "/signup";
+            return "signup";
         }
-        return "/main";
+        return "main";
     }
 
     @GetMapping("/login")
-    public String signup(){return "/login";}
+    public String signup(){return "login";}
 
 
 
